@@ -3,11 +3,11 @@ import React from "react";
 import { ImageStyle } from "../Styles/Image";
 import { ImageTextProps } from "../types/type";
 
-const ImageDescription = ({ ImageTitle, Imagedescription }: ImageTextProps) => {
+const ImageDescription = ({ ImageTitle, ImageDescription }: ImageTextProps) => {
   return (
     <View style={ImageStyle.containerDescription}>
       <Text style={ImageStyle.Title}>{ImageTitle}</Text>
-      <Text style={ImageStyle.Description}>{Imagedescription}</Text>
+      <Text style={ImageStyle.Description}>{ImageDescription}</Text>
     </View>
   );
 };

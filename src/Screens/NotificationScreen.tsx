@@ -18,7 +18,7 @@ const NotificationScreen = () => {
         <Image ImageSource={Images.Bell} />
         <ImageDescription
           ImageTitle="Notifications"
-          Imagedescription="Please enable notifications to receive updates and reminders"
+          ImageDescription="Please enable notifications to receive updates and reminders"
         />
       </View>
       <View style={NotificationStyle.container} />

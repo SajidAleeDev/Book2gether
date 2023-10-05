@@ -1,11 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
+import SafeArea from "../components/SafeArea";
 
 const Maps = () => {
   return (
-    <View>
+    <SafeArea gray>
       <Text>Maps</Text>
-    </View>
+    </SafeArea>
   );
 };
 

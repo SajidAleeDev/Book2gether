@@ -9,7 +9,7 @@ export interface children {
 
 export interface ImageTextProps {
   ImageTitle: string;
-  Imagedescription: string;
+  ImageDescription: string;
 }
 
 export interface ImageProps {

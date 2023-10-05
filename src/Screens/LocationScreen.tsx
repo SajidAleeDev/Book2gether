@@ -18,7 +18,7 @@ const LocationScreen = () => {
         <Image ImageSource={Images.Location} />
         <ImageDescription
           ImageTitle="Location"
-          Imagedescription="Allow maps to access your location while you use the app?"
+          ImageDescription="Allow maps to access your location while you use the app?"
         />
       </View>
       <View style={LocationStyle.container} />

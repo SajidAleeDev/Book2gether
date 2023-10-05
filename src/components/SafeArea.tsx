@@ -1,6 +1,5 @@
-import { View, Text } from "react-native";
 import React from "react";
-import { LanguageStyle } from "../Styles/LanguageStyle";
+import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { children } from "../types/type";
 

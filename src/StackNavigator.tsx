@@ -9,8 +9,10 @@ import NotificationScreen from "./Screens/NotificationScreen";
 import ServiceScreen from "./Screens/ServiceScreen";
 import Notification from "./Screens/Notification";
 import Profile from "./Screens/Profile";
-import { HomeIcon, CompassIcon, BellIcon, User } from "lucide-react-native";
+import { CompassIcon, BellIcon, User } from "lucide-react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Image } from "react-native";
+import HomeIcon from "../assets/Svg/HomeIcon";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -106,7 +108,7 @@ const StackNavigator = () => {
       <Stack.Screen name="Notification" component={NotificationScreen} />
       <Stack.Screen name="Location" component={LocationScreen} />
       <Stack.Screen name="Service" component={ServiceScreen} />
-      <Stack.Screen name="Home" component={MyTabs} />
+      <Stack.Screen name="MyTab" component={MyTabs} />
     </Stack.Navigator>
   );
 };

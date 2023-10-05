@@ -17,11 +17,11 @@ const LanguageScreen = () => {
         <Image ImageSource={Images.Language} />
         <ImageDescription
           ImageTitle="Language"
-          Imagedescription="Please select the language you'd like to continue with"
+          ImageDescription="Please select the language you'd like to continue with"
         />
       </View>
       <View style={LanguageStyle.TextContainer}>
-        <Text>Languages Section</Text>
+        {/* <Text>Languages Section</Text> */}
       </View>
       <Button
         title="Next"

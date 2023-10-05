@@ -15,7 +15,7 @@ const ServiceScreen = () => {
   const [selected, setSelected] = useState<number | null>(null);
   const navigation: NavigationProps = useNavigation();
 
-  function selecteditem(index: number) {
+  function selectedItem(index: number) {
     setSelected(index);
   }
 
@@ -24,7 +24,7 @@ const ServiceScreen = () => {
       alert("Please select a service");
       return;
     }
-    navigation.navigate("Home");
+    navigation.navigate("MyTab");
   }
 
   return (
@@ -33,7 +33,7 @@ const ServiceScreen = () => {
         <Image ImageSource={Images.Service} />
         <ImageDescription
           ImageTitle="Service"
-          Imagedescription="Please select the service you'd like to continue with"
+          ImageDescription="Please select the service you'd like to continue with"
         />
       </View>
       <View style={ServiceStyle.container}>
@@ -42,7 +42,7 @@ const ServiceScreen = () => {
             <ServiceCard
               key={index}
               ImageSource={Images.Service}
-              onPress={() => selecteditem(index)}
+              onPress={() => selectedItem(index)}
               Selected={selected === index}
             />
           );

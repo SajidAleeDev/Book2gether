@@ -1,11 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
+import SafeArea from "../components/SafeArea";
 
 const Notification = () => {
   return (
-    <View>
+    <SafeArea gray>
       <Text>Notification</Text>
-    </View>
+    </SafeArea>
   );
 };
 
