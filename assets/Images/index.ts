@@ -4,4 +4,9 @@ export const Images = {
   Bell: require("./Notification.png"),
   Location: require("./Location.png"),
   Service: require("./Service.png"),
+  HairDresser: require("./hair-cutting.png"),
+  NailSalon: require("./nail.png"),
+  Beautician: require("./beautician.png"),
+  Pedicure: require("./pedicure.png"),
+  Barber: require("./Barber-Image.png"),
 };

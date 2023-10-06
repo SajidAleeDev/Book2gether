@@ -11,8 +11,9 @@ import Notification from "./Screens/Notification";
 import Profile from "./Screens/Profile";
 import { CompassIcon, BellIcon, User } from "lucide-react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Image } from "react-native";
+import { Image, View } from "react-native";
 import HomeIcon from "../assets/Svg/HomeIcon";
+import SalonDetails from "./Screens/SalonDetails";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -30,12 +31,10 @@ const StackNavigator = () => {
           tabBarStyle: {
             backgroundColor: "#FFFFFF",
             borderTopWidth: 0,
-
-            elevation: 2,
+            elevation: 20,
             height: 60,
-
             paddingBottom: 10,
-            borderRadius: 25,
+            borderRadius: 30,
             margin: 1,
           },
         }}
@@ -102,12 +101,16 @@ const StackNavigator = () => {
       initialRouteName="Language"
       screenOptions={{
         headerShown: false,
+        contentStyle: {
+          backgroundColor: "#FCFCFC",
+        },
       }}
     >
       <Stack.Screen name="Language" component={LanguageScreen} />
       <Stack.Screen name="Notification" component={NotificationScreen} />
       <Stack.Screen name="Location" component={LocationScreen} />
       <Stack.Screen name="Service" component={ServiceScreen} />
+      <Stack.Screen name="SalonDetails" component={SalonDetails} />
       <Stack.Screen name="MyTab" component={MyTabs} />
     </Stack.Navigator>
   );

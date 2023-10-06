@@ -11,7 +11,7 @@ const SafeArea = ({ children, gray }: children & { gray?: boolean }) => {
         paddingTop: insets.top,
         paddingBottom: insets.bottom,
         flex: 1,
-        backgroundColor: gray ? "" : "#FFF",
+        backgroundColor: gray ? "#FCFCFC" : "#FFF",
       }}
     >
       {children}

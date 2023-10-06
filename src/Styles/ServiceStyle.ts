@@ -4,10 +4,6 @@ export const ServiceStyle = StyleSheet.create({
   container: {
     flex: 1,
     padding: 6,
-
-    flexWrap: "wrap",
-    // justifyContent: "space-between",
-    alignItems: "center",
   },
 
   // card style

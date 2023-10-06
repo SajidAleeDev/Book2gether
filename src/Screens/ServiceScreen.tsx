@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, FlatList } from "react-native";
 import { Images } from "../../assets/Images";
 import { LanguageStyle } from "../Styles/LanguageStyle";
 import { ServiceStyle } from "../Styles/ServiceStyle";
@@ -10,6 +10,7 @@ import SafeArea from "../components/SafeArea";
 import ServiceCard from "../components/ServiceCard";
 import { useNavigation } from "@react-navigation/native";
 import { NavigationProps } from "../types/type";
+import { Services } from "../data/ServicesData";
 
 const ServiceScreen = () => {
   const [selected, setSelected] = useState<number | null>(null);
@@ -37,16 +38,20 @@ const ServiceScreen = () => {
         />
       </View>
       <View style={ServiceStyle.container}>
-        {[1, 2, 3, 4].map((item, index) => {
-          return (
+        <FlatList
+          data={Services}
+          renderItem={({ item, index }) => (
             <ServiceCard
+              title={item.name}
               key={index}
-              ImageSource={Images.Service}
+              ImageSource={item.Image}
               onPress={() => selectedItem(index)}
               Selected={selected === index}
             />
-          );
-        })}
+          )}
+          numColumns={2}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
 
       <Button

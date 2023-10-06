@@ -6,8 +6,12 @@ import { ImageProps } from "../types/type";
 const ServiceCard = ({
   ImageSource,
   Selected,
+  title,
   ...props
-}: ImageProps & { Selected: boolean } & TouchableOpacity["props"]) => {
+}: ImageProps & {
+  Selected: boolean;
+  title: string;
+} & TouchableOpacity["props"]) => {
   return (
     <TouchableOpacity
       style={[
@@ -21,7 +25,7 @@ const ServiceCard = ({
       {...props}
     >
       <Image source={ImageSource} style={ServiceStyle.image} />
-      <Text style={ServiceStyle.Text}>Hair Dresser</Text>
+      <Text style={ServiceStyle.Text}>{title}</Text>
     </TouchableOpacity>
   );
 };
