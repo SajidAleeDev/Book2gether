@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { useNavigation } from "@react-navigation/native";
+import { Dot, MapPin, PhoneCall } from "lucide-react-native";
+import React, { useEffect, useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
+  Dimensions,
   Image,
   ScrollView,
-  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
-import { SalonDetailsProps } from "../types/type";
-import { HomeItemData } from "../data/HomeItemData";
-import { ArrowLeft, Dot, PhoneCall } from "lucide-react-native";
-import { MapPin } from "lucide-react-native";
 import StarRating from "react-native-star-rating-widget";
 import BackButton from "../components/BackButton";
-import { useNavigation } from "@react-navigation/native";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { HomeItemData } from "../data/HomeItemData";
+import { SalonDetailsProps } from "../types/type";
 import Details from "./Details";
 import Reviews from "./Reviews";
+import { SalonDetailsStyle } from "../Styles/SalonDetailsStyle";
 
 const SalonDetails = ({ route }: SalonDetailsProps) => {
   const Tab = createMaterialTopTabNavigator();
@@ -34,6 +34,9 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
     const item = HomeItemData.find((item) => item.id === id);
     setData(item);
   };
+  if (data === null) {
+    fetchDataById(id as number);
+  }
 
   return (
     <View style={SalonDetailsStyle.container}>
@@ -43,7 +46,10 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
       </View>
       <BackButton onPress={() => navigation.goBack()} />
       <View style={SalonDetailsStyle.ContentContainerWrapper}>
-        <ScrollView style={SalonDetailsStyle.ContentContainer}>
+        <ScrollView
+          style={SalonDetailsStyle.ContentContainer}
+          showsVerticalScrollIndicator={false}
+        >
           <View style={SalonDetailsStyle.TextContainer}>
             <Text style={SalonDetailsStyle.text}>{data?.name}</Text>
             <View style={SalonDetailsStyle.openContainer}>
@@ -100,10 +106,39 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
           </View>
           <View
             style={{
-              height: 500,
+              // height: Dimensions.get("window").height - 300,
+              height: 600,
             }}
           >
-            <Tab.Navigator initialRouteName="Details" sceneContainerStyle={{}}>
+            <Tab.Navigator
+              initialRouteName="Details"
+              sceneContainerStyle={{
+                backgroundColor: "transparent",
+                shadowColor: "transparent",
+              }}
+              screenOptions={{
+                tabBarIndicatorStyle: {
+                  backgroundColor: "#75BDE0",
+                  height: 3,
+                  borderRadius: 30,
+                },
+                tabBarLabelStyle: {
+                  fontFamily: "popins-medium",
+                  fontSize: 13,
+                },
+                tabBarStyle: {
+                  backgroundColor: "#fff",
+                  elevation: 1,
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 2,
+                    height: 2,
+                  },
+                  shadowRadius: 20,
+                  shadowOpacity: 1,
+                },
+              }}
+            >
               <Tab.Screen
                 name="Details"
                 component={Details}
@@ -121,73 +156,3 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
 };
 
 export default SalonDetails;
-
-const SalonDetailsStyle = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: "relative",
-  },
-  ImageContainer: {
-    height: 376,
-  },
-
-  Image: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  overlay: {
-    flex: 1,
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgba(0, 0, 0, 0.29)",
-  },
-
-  ContentContainerWrapper: {
-    height: 534,
-    overflow: "hidden",
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
-    position: "absolute",
-    bottom: 0,
-    right: 0,
-    left: 0,
-  },
-  ContentContainer: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: 20,
-    paddingHorizontal: 15,
-  },
-  text: {
-    fontSize: 22,
-    fontWeight: "600",
-    fontFamily: "popins-semibold",
-  },
-  TextContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-    width: "100%",
-  },
-  openContainer: {
-    flexDirection: "row",
-    position: "relative",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  openContainerText: {
-    color: "#A4A4A4",
-    fontSize: 18,
-  },
-  AboutContainer: {
-    paddingLeft: 10,
-  },
-  AboutText: {
-    color: "#A4A4A4",
-    fontWeight: "400",
-    fontFamily: "popins-medium",
-    padding: 3,
-  },
-});

@@ -1,29 +1,25 @@
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
-import { useState } from "react";
-import SafeArea from "../components/SafeArea";
-import { HomeStyle } from "../Styles/HomeStyle";
-import { LayoutGrid, Search } from "lucide-react-native";
 import { useNavigation } from "@react-navigation/native";
-import { NavigationProps } from "../types/type";
-import Input from "../components/Input";
-import { HomeItemData } from "../data/HomeItemData";
+import { LayoutGrid, Search } from "lucide-react-native";
+import {
+  FlatList,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { HomeStyle } from "../Styles/HomeStyle";
 import HomeItem from "../components/HomeItem";
+import Input from "../components/Input";
+import SafeArea from "../components/SafeArea";
+import { HomeItemData } from "../data/HomeItemData";
+import { NavigationProps } from "../types/type";
 
 const Home = () => {
   const navigation: NavigationProps = useNavigation();
 
   return (
     <SafeArea gray>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={HomeStyle.container}
-      >
+      <ScrollView style={HomeStyle.container}>
         <View style={HomeStyle.HeaderContainer}>
           <Text style={HomeStyle.HeadText}>Find Salon Services around you</Text>
           <TouchableOpacity

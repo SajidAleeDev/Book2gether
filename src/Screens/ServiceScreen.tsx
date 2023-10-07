@@ -30,30 +30,36 @@ const ServiceScreen = () => {
 
   return (
     <SafeArea>
-      <View style={LanguageStyle.LanguageHeader}>
-        <Image ImageSource={Images.Service} />
-        <ImageDescription
-          ImageTitle="Service"
-          ImageDescription="Please select the service you'd like to continue with"
-        />
-      </View>
-      <View style={ServiceStyle.container}>
-        <FlatList
-          data={Services}
-          renderItem={({ item, index }) => (
-            <ServiceCard
-              title={item.name}
-              key={index}
-              ImageSource={item.Image}
-              onPress={() => selectedItem(index)}
-              Selected={selected === index}
-            />
-          )}
-          numColumns={2}
-          showsVerticalScrollIndicator={false}
-        />
-      </View>
-
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{ flexGrow: 1 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={LanguageStyle.LanguageHeader}>
+          <Image ImageSource={Images.Service} />
+          <ImageDescription
+            ImageTitle="Service"
+            ImageDescription="Please select the service you'd like to continue with"
+          />
+        </View>
+        <View style={ServiceStyle.container}>
+          <FlatList
+            data={Services}
+            renderItem={({ item, index }) => (
+              <ServiceCard
+                title={item.name}
+                key={index}
+                ImageSource={item.Image}
+                onPress={() => selectedItem(index)}
+                Selected={selected === index}
+              />
+            )}
+            numColumns={2}
+            showsVerticalScrollIndicator={false}
+            scrollEnabled={false}
+          />
+        </View>
+      </ScrollView>
       <Button
         title="Next"
         ButtonPress={() => {

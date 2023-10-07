@@ -3,9 +3,9 @@ import React from "react";
 import { Dot, MapPin } from "lucide-react-native";
 import Button from "./Button";
 import { useNavigation } from "@react-navigation/native";
-import { HomeItemNavigationProps } from "../types/type";
+import { HomeItemNavigationProps, HomeItemProps } from "../types/type";
 
-const HomeItem = ({ item }: any) => {
+const HomeItem = ({ item }: HomeItemProps) => {
   const navigation: HomeItemNavigationProps = useNavigation();
 
   return (
@@ -18,11 +18,11 @@ const HomeItem = ({ item }: any) => {
       }}
     >
       <View style={HomeItemStyle.ImageContainer}>
-        <Image source={item.Image} style={HomeItemStyle.Image} />
+        <Image source={item?.Image} style={HomeItemStyle.Image} />
       </View>
       <View style={HomeItemStyle.TextContainer}>
         <View style={HomeItemStyle.TitleContainer}>
-          <Text style={HomeItemStyle.Title}>{item.name}</Text>
+          <Text style={HomeItemStyle.Title}>{item?.name}</Text>
           <Dot
             size={60}
             style={{
