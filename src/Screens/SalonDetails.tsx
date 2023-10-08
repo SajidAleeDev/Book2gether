@@ -17,6 +17,7 @@ import { SalonDetailsProps } from "../types/type";
 import Details from "./Details";
 import Reviews from "./Reviews";
 import { SalonDetailsStyle } from "../Styles/SalonDetailsStyle";
+import Button from "../components/Button";
 
 const SalonDetails = ({ route }: SalonDetailsProps) => {
   const Tab = createMaterialTopTabNavigator();
@@ -41,15 +42,31 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
   return (
     <View style={SalonDetailsStyle.container}>
       <View style={SalonDetailsStyle.ImageContainer}>
-        <Image source={data?.Image} style={SalonDetailsStyle.Image} />
+        <Image
+          source={{
+            uri: data?.Image,
+          }}
+          style={SalonDetailsStyle.Image}
+        />
         <View style={SalonDetailsStyle.overlay} />
       </View>
-      <BackButton onPress={() => navigation.goBack()} />
+      <BackButton
+        onPress={() => navigation.goBack()}
+        color="#fff"
+        style={{
+          position: "absolute",
+          top: 30,
+          left: 10,
+          zIndex: 1,
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      />
       <View style={SalonDetailsStyle.ContentContainerWrapper}>
-        <ScrollView
-          style={SalonDetailsStyle.ContentContainer}
-          showsVerticalScrollIndicator={false}
-        >
+        <View style={SalonDetailsStyle.ContentContainer}>
           <View style={SalonDetailsStyle.TextContainer}>
             <Text style={SalonDetailsStyle.text}>{data?.name}</Text>
             <View style={SalonDetailsStyle.openContainer}>
@@ -106,8 +123,7 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
           </View>
           <View
             style={{
-              // height: Dimensions.get("window").height - 300,
-              height: 600,
+              height: Dimensions.get("window").height - 471,
             }}
           >
             <Tab.Navigator
@@ -146,10 +162,16 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
                   data: data,
                 }}
               />
-              <Tab.Screen name="Review" component={Reviews} />
+              <Tab.Screen
+                name="Review"
+                component={Reviews}
+                initialParams={{
+                  data: data,
+                }}
+              />
             </Tab.Navigator>
           </View>
-        </ScrollView>
+        </View>
       </View>
     </View>
   );

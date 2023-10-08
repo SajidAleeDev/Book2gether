@@ -5,7 +5,7 @@ export const HomeItemData: ReturnProps[] = [
   {
     id: Math.random() * 10000000,
     name: "The Razor’s Salon",
-    Image: Images.Barber,
+    Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
     Location: "42 Baker Street, London, NW...",
     city: "Amsterdam",
     open: true,
@@ -50,51 +50,17 @@ export const HomeItemData: ReturnProps[] = [
     Employees: [
       {
         name: "John Doe",
-        Image: Images.Barber,
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
         Expertise: "Hair Stylist",
       },
-      {
-        name: "John Doe",
-        Image: Images.Barber,
-        Expertise: "Haircut",
-      },
-      {
-        name: "John Doe",
-        Image: Images.Barber,
-        Expertise: "Haircut",
-      },
-      {
-        name: "John Doe",
-        Image: Images.Barber,
-        Expertise: "Haircut",
-      },
-      {
-        name: "John Doe",
-        Image: Images.Barber,
-        Expertise: "Haircut",
-      },
-      {
-        name: "John Doe",
-        Image: Images.Barber,
-        Expertise: "Haircut",
-      },
-      {
-        name: "John Doe",
-        Image: Images.Barber,
-        Expertise: "Haircut",
-      },
-      {
-        name: "John Doe",
-        Image: Images.Barber,
-        Expertise: "Haircut",
-      },
     ],
+
     Treatment: [
       {
         name: "Haircut",
         Treatments: [
           {
-            name: "Hair straightening",
+            name: "sajid",
             duration: "1 Hour",
             price: "$100",
           },
@@ -164,6 +130,40 @@ export const HomeItemData: ReturnProps[] = [
             price: "$100",
           },
         ],
+      },
+    ],
+    Review: [
+      {
+        name: "Emma Jane",
+        date: "3 day ago",
+        Rating: 4,
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Reviewed:
+          "This salon is a hidden treasure! Incredible stylists, impeccable service, and stunning results. A must-visit! 💇‍♀️💄🌟",
+      },
+      {
+        name: "Emma Jane",
+        date: "3 day ago",
+        Rating: 4,
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Reviewed:
+          "This salon is a hidden treasure! Incredible stylists, impeccable service, and stunning results. A must-visit! 💇‍♀️💄🌟",
+      },
+      {
+        name: "Emma Jane",
+        date: "3 day ago",
+        Rating: 4,
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Reviewed:
+          "This salon is a hidden treasure! Incredible stylists, impeccable service, and stunning results. A must-visit! 💇‍♀️💄🌟",
+      },
+      {
+        name: "Emma Jane",
+        date: "3 day ago",
+        Rating: 4,
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Reviewed:
+          "This salon is a hidden treasure! Incredible stylists, impeccable service, and stunning results. A must-visit! 💇‍♀️💄🌟",
       },
     ],
   },

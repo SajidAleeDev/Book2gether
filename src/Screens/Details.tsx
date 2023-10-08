@@ -1,25 +1,13 @@
-import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import EmployeesItem from "../components/EmployeesItem";
+import Button from "../components/Button";
 import OpenTimeText from "../components/OpenTimeText";
-import TreatmentButton from "../components/TreatmentButton";
-import {
-  DetailsProps,
-  TreatmentDetailsProps,
-  TreatmentProps,
-} from "../types/type";
-import TreatmentDetails from "../components/TreatmentDetails";
+import { DetailsProps, TreatmentsNavigationProps } from "../types/type";
 
 const Details = ({ route }: DetailsProps) => {
   const { data } = route?.params ?? {};
-  const [selected, setSelected] = useState<any>(null);
-  const [treatment, setTreatment] = useState<any>([]);
-
-  function SelectingItem(index: number, item: any) {
-    setSelected(index);
-    setTreatment(item);
-  }
-
+  const navigation = useNavigation<TreatmentsNavigationProps>();
   return (
     <View style={DetailsStyle.container}>
       <Text style={DetailsStyle.HeaderText}>Opening Hours</Text>
@@ -35,53 +23,12 @@ const Details = ({ route }: DetailsProps) => {
           }}
         />
       </View>
-      <Text style={DetailsStyle.HeaderText}>
-        Employees {data?.Employees?.length}{" "}
-      </Text>
-      <View
-        style={{
-          marginBottom: 10,
-        }}
-      >
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={data?.Employees}
-          renderItem={({ item, index }) => (
-            <EmployeesItem item={item} key={index} />
-          )}
-          style={{
-            padding: 10,
-          }}
-        />
-      </View>
-
-      <Text style={DetailsStyle.HeaderText}>Treatments (48)</Text>
-      <View style={{ marginVertical: 10 }}>
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={data?.Treatment}
-          renderItem={({ item, index }) => (
-            <TreatmentButton
-              item={item}
-              key={index + 1}
-              SelectedTreatment={selected === index}
-              onPress={() => SelectingItem(index, item.Treatments)}
-            />
-          )}
-          style={{
-            padding: 10,
-          }}
-        />
-      </View>
-      <FlatList
-        data={treatment}
-        renderItem={({ item, index }) => (
-          <TreatmentDetails item={item} key={index} />
-        )}
-        style={{
-          padding: 10,
+      <Button
+        title="Book"
+        ButtonPress={() => {
+          navigation.navigate("Treatments", {
+            data: data?.Treatment,
+          });
         }}
       />
     </View>
@@ -103,11 +50,10 @@ export const DetailsStyle = StyleSheet.create({
     lineHeight: 19,
   },
   openingContainer: {
-    margin: 10,
+    margin: 8,
     height: 209,
     borderRadius: 10,
     backgroundColor: "#fff",
     elevation: 0.5,
-    marginBottom: 20,
   },
 });

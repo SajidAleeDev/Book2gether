@@ -1,13 +1,35 @@
 import { ArrowLeft } from "lucide-react-native";
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { BackButtonProps } from "../types/type";
 
 const BackButton = ({
+  color,
+  title,
   ...props
-}: React.ComponentProps<typeof TouchableOpacity>) => {
+}: BackButtonProps & React.ComponentProps<typeof TouchableOpacity>) => {
   return (
-    <TouchableOpacity style={styles.container} {...props}>
-      <ArrowLeft size={26} color="#fff" />
+    <TouchableOpacity
+      style={{
+        borderRadius: 20,
+        alignItems: "center",
+        flexDirection: "row",
+      }}
+      {...props}
+    >
+      <ArrowLeft size={26} color={color} />
+      {title && (
+        <Text
+          style={{
+            marginLeft: 20,
+            color: "#000",
+            fontSize: 18,
+            fontWeight: "600",
+          }}
+        >
+          Select Treatment
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };
@@ -15,15 +37,6 @@ const BackButton = ({
 export default BackButton;
 
 export const styles = StyleSheet.create({
-  container: {
-    position: "absolute",
-    top: 50,
-    left: 10,
-    zIndex: 1,
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  // container: {
+  // },
 });

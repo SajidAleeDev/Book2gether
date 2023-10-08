@@ -18,7 +18,12 @@ const HomeItem = ({ item }: HomeItemProps) => {
       }}
     >
       <View style={HomeItemStyle.ImageContainer}>
-        <Image source={item?.Image} style={HomeItemStyle.Image} />
+        <Image
+          source={{
+            uri: item?.Image,
+          }}
+          style={HomeItemStyle.Image}
+        />
       </View>
       <View style={HomeItemStyle.TextContainer}>
         <View style={HomeItemStyle.TitleContainer}>

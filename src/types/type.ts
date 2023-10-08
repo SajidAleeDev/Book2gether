@@ -2,7 +2,7 @@ import { GestureResponderEvent, Image } from "react-native";
 
 export interface ReturnProps {
   id: number;
-  Image: React.ComponentProps<typeof Image>["source"];
+  Image: string;
   name: string;
   open: boolean;
   Location: string;
@@ -11,7 +11,7 @@ export interface ReturnProps {
   Rating: number;
   Employees: {
     name: string;
-    Image: React.ComponentProps<typeof Image>["source"];
+    Image: string;
     Expertise: string;
   }[];
   OpenTiming: {
@@ -28,6 +28,17 @@ export interface ReturnProps {
       price: string;
     }[];
   }[];
+  Review: {
+    Image: string;
+    name: string;
+    date: string;
+    Rating: number;
+    Reviewed: string;
+  }[];
+}
+export interface BackButtonProps {
+  color: string;
+  title?: string;
 }
 
 export interface NavigationProps {
@@ -63,6 +74,9 @@ export interface InputProps {
 export interface HomeItemNavigationProps {
   navigate: (arg: string, { id }: { id: string }) => void;
 }
+export interface TreatmentsNavigationProps {
+  navigate: (arg: string, { data }: { data: any }) => void;
+}
 export interface SalonDetailsProps {
   route?: {
     params: {
@@ -75,7 +89,7 @@ export interface SalonDetailsProps {
 export interface HomeItemProps {
   item: {
     id: string | any;
-    Image: React.ComponentProps<typeof Image>["source"];
+    Image: string;
     name: string;
     open?: boolean;
     Location: string;
@@ -115,6 +129,37 @@ export interface TreatmentProps {
   };
 
   SelectedTreatment: boolean;
+}
+
+export interface TreatmentDetailsProps {
+  name: string;
+  duration: string;
+  price: string;
+}
+
+export interface ReviewItemProps {
+  item: {
+    name: string;
+    Image: string;
+    date: string;
+    Rating: number;
+    Reviewed: string;
+  };
+}
+
+export interface TreatmentsItemProps {
+  route?: {
+    params: {
+      data: {
+        name: string;
+        Treatments: {
+          name: string;
+          duration: string;
+          price: string;
+        }[];
+      }[];
+    };
+  };
 }
 
 export interface TreatmentDetailsProps {

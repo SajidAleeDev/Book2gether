@@ -1,19 +1,18 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { BellIcon, CompassIcon, User } from "lucide-react-native";
 import React from "react";
+import HomeIcon from "../assets/Svg/HomeIcon";
 import Home from "./Screens/Home";
 import LanguageScreen from "./Screens/LanguageScreen";
 import LocationScreen from "./Screens/LocationScreen";
 import Maps from "./Screens/Maps";
-import NotificationScreen from "./Screens/NotificationScreen";
-import ServiceScreen from "./Screens/ServiceScreen";
 import Notification from "./Screens/Notification";
+import NotificationScreen from "./Screens/NotificationScreen";
 import Profile from "./Screens/Profile";
-import { CompassIcon, BellIcon, User } from "lucide-react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Image, View } from "react-native";
-import HomeIcon from "../assets/Svg/HomeIcon";
 import SalonDetails from "./Screens/SalonDetails";
+import ServiceScreen from "./Screens/ServiceScreen";
+import TreatmentsScreen from "./Screens/TreatmentsScreen";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -111,6 +110,7 @@ const StackNavigator = () => {
       <Stack.Screen name="Location" component={LocationScreen} />
       <Stack.Screen name="Service" component={ServiceScreen} />
       <Stack.Screen name="SalonDetails" component={SalonDetails} />
+      <Stack.Screen name="Treatments" component={TreatmentsScreen} />
       <Stack.Screen name="MyTab" component={MyTabs} />
     </Stack.Navigator>
   );
