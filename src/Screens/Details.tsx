@@ -1,13 +1,14 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import Button from "../components/Button";
+import { useBucket } from "../Hooks/Context";
 import OpenTimeText from "../components/OpenTimeText";
-import { DetailsProps, TreatmentsNavigationProps } from "../types/type";
+import { DetailsProps } from "../types/type";
 
 const Details = ({ route }: DetailsProps) => {
   const { data } = route?.params ?? {};
-  const navigation = useNavigation<TreatmentsNavigationProps>();
+
+  const { setSelectedSalon } = useBucket();
+
   return (
     <View style={DetailsStyle.container}>
       <Text style={DetailsStyle.HeaderText}>Opening Hours</Text>
@@ -23,14 +24,6 @@ const Details = ({ route }: DetailsProps) => {
           }}
         />
       </View>
-      <Button
-        title="Book"
-        ButtonPress={() => {
-          navigation.navigate("Treatments", {
-            data: data?.Treatment,
-          });
-        }}
-      />
     </View>
   );
 };
@@ -41,6 +34,7 @@ export const DetailsStyle = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 10,
+    backgroundColor: "#FCFCFC",
   },
   HeaderText: {
     color: "#212121",

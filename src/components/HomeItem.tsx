@@ -77,24 +77,26 @@ export default HomeItem;
 
 export const HomeItemStyle = StyleSheet.create({
   container: {
-    margin: 10,
     backgroundColor: "#fff",
-    height: 138,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
+    marginVertical: 4,
+    marginHorizontal: 4,
+    flex: 1,
 
+    shadowColor: "rgba(0,0,0,0.4)",
+    shadowOffset: {
+      width: 3,
+      height: 3,
+    },
+    shadowOpacity: 0.6,
     borderRadius: 16,
-    elevation: 3,
+    elevation: 4,
     flexDirection: "row",
   },
   ImageContainer: {
     width: 110,
     height: 110,
     borderRadius: 16,
-    margin: 13,
+    margin: 8,
   },
   Image: {
     width: "100%",
@@ -103,7 +105,7 @@ export const HomeItemStyle = StyleSheet.create({
     objectFit: "cover",
   },
   TextContainer: {
-    paddingHorizontal: 5,
+    paddingHorizontal: 3,
     paddingVertical: 10,
   },
   Title: {

@@ -5,25 +5,27 @@ import React, { useEffect, useState } from "react";
 import {
   Dimensions,
   Image,
+  Platform,
   ScrollView,
-  StyleSheet,
   Text,
   View,
 } from "react-native";
 import StarRating from "react-native-star-rating-widget";
+import { useBucket } from "../Hooks/Context";
+import { SalonDetailsStyle } from "../Styles/SalonDetailsStyle";
 import BackButton from "../components/BackButton";
 import { HomeItemData } from "../data/HomeItemData";
-import { SalonDetailsProps } from "../types/type";
+import { SalonDetailsProps, TreatmentsNavigationProps } from "../types/type";
 import Details from "./Details";
 import Reviews from "./Reviews";
-import { SalonDetailsStyle } from "../Styles/SalonDetailsStyle";
 import Button from "../components/Button";
 
 const SalonDetails = ({ route }: SalonDetailsProps) => {
   const Tab = createMaterialTopTabNavigator();
   const id = route?.params?.id;
   const [data, setData] = useState<any>(null);
-  const navigation = useNavigation();
+
+  const { setSelectedSalon } = useBucket();
 
   useEffect(() => {
     if (id) {
@@ -38,7 +40,17 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
   if (data === null) {
     fetchDataById(id as number);
   }
-
+  const navigation = useNavigation<TreatmentsNavigationProps | any>();
+  function Navigate() {
+    setSelectedSalon({
+      SalonName: data?.name,
+      SalonAddress: data?.Location,
+      SalonNumber: data?.number,
+    });
+    navigation.navigate("Treatments", {
+      data: data,
+    });
+  }
   return (
     <View style={SalonDetailsStyle.container}>
       <View style={SalonDetailsStyle.ImageContainer}>
@@ -123,15 +135,11 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
           </View>
           <View
             style={{
-              height: Dimensions.get("window").height - 471,
+              flex: 1,
             }}
           >
             <Tab.Navigator
               initialRouteName="Details"
-              sceneContainerStyle={{
-                backgroundColor: "transparent",
-                shadowColor: "transparent",
-              }}
               screenOptions={{
                 tabBarIndicatorStyle: {
                   backgroundColor: "#75BDE0",
@@ -151,7 +159,7 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
                     height: 2,
                   },
                   shadowRadius: 20,
-                  shadowOpacity: 1,
+                  shadowOpacity: 0.1,
                 },
               }}
             >
@@ -170,6 +178,12 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
                 }}
               />
             </Tab.Navigator>
+            <Button
+              title="Book"
+              ButtonPress={() => {
+                Navigate();
+              }}
+            />
           </View>
         </View>
       </View>

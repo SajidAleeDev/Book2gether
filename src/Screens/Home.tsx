@@ -43,23 +43,30 @@ const Home = () => {
           }}
         >
           <Input placeholder="Search country" />
-          <Input placeholder="Selected your city" />
         </View>
         <View style={HomeStyle.ItemContainer}>
           <Text style={HomeStyle.ItemAvailable}>
             Results found ({HomeItemData.length})
           </Text>
         </View>
-        <FlatList
-          data={HomeItemData}
-          renderItem={({ item, index }) => <HomeItem key={index} item={item} />}
-          keyExtractor={({ id }: any) => id}
+        <View
           style={{
             flex: 1,
-            marginBottom: 20,
           }}
-          scrollEnabled={false}
-        />
+        >
+          <FlatList
+            data={HomeItemData}
+            renderItem={({ item, index }) => (
+              <HomeItem key={index} item={item} />
+            )}
+            keyExtractor={({ id }: any) => id}
+            style={{
+              flex: 1,
+              paddingBottom: 10,
+            }}
+            scrollEnabled={false}
+          />
+        </View>
       </ScrollView>
     </SafeArea>
   );

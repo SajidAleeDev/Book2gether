@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react-native";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { BackButtonProps } from "../types/type";
 
 const BackButton = ({
@@ -9,15 +9,17 @@ const BackButton = ({
   ...props
 }: BackButtonProps & React.ComponentProps<typeof TouchableOpacity>) => {
   return (
-    <TouchableOpacity
+    <View
       style={{
         borderRadius: 20,
         alignItems: "center",
         flexDirection: "row",
+        marginLeft: 4,
       }}
-      {...props}
     >
-      <ArrowLeft size={26} color={color} />
+      <TouchableOpacity {...props}>
+        <ArrowLeft size={26} color={color} />
+      </TouchableOpacity>
       {title && (
         <Text
           style={{
@@ -27,10 +29,10 @@ const BackButton = ({
             fontWeight: "600",
           }}
         >
-          Select Treatment
+          {title}
         </Text>
       )}
-    </TouchableOpacity>
+    </View>
   );
 };
 

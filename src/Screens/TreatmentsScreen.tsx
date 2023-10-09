@@ -1,84 +1,38 @@
-// import React, { useState } from "react";
-// import { StyleSheet, View, FlatList } from "react-native";
-// import BackButton from "../components/BackButton";
-// import SafeArea from "../components/SafeArea";
-// // import { TreatmentsItemProps } from "../types/type";
-// import TreatmentButton from "../components/TreatmentButton";
-
-// export interface TreatmentsItemProps {
-//   route?: {
-//     params: {
-//       data: {
-//         name: string;
-//         Treatments: {
-//           name: string;
-//           duration: string;
-//           price: string;
-//         }[];
-//       }[];
-//     };
-//   };
-// }
-
-// const TreatmentsScreen = ({ route }: TreatmentsItemProps) => {
-//   const data = route?.params.data;
-//   const [SelectedTreatment, setSelectedTreatment] = useState<number>(0);
-//   const [SelectedTreatmentDetails, setSelectedTreatmentDetails] = useState([]);
-
-//   console.log(SelectedTreatmentDetails);
-//   return (
-//     <SafeArea gray>
-//       <View style={TreatmentsStyle.container}>
-//         <BackButton color="#000" title="Select Treatment" />
-//         <View style={TreatmentsStyle.TreatmentFilter}>
-//           <FlatList
-//             data={data}
-//             horizontal
-//             renderItem={({ item, index }: any) => (
-//               <TreatmentButton
-//                 item={item}
-//                 SelectedTreatment={SelectedTreatment === index}
-//                 key={index + 1}
-//                 onPress={() => {
-//                   setSelectedTreatment(index);
-//                   setSelectedTreatmentDetails(item.Treatments);
-//                 }}
-//               />
-//             )}
-//           />
-//         </View>
-//       </View>
-//     </SafeArea>
-//   );
-// };
-
-// export default TreatmentsScreen;
-
-// export const TreatmentsStyle = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     padding: 10,
-//   },
-//   TreatmentFilter: {
-//     marginTop: 20,
-//   },
-// });
-import React, { useState, useEffect, useMemo } from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import React, { useMemo, useState } from "react";
+import { FlatList, StyleSheet, View } from "react-native";
 import BackButton from "../components/BackButton";
+import Button from "../components/Button";
 import SafeArea from "../components/SafeArea";
 import TreatmentButton from "../components/TreatmentButton";
-import { TreatmentsItemProps } from "../types/type";
 import TreatmentDetails from "../components/TreatmentDetails";
-import Button from "../components/Button";
-
+import { EmployeeNavigationProps, TreatmentsItemProps } from "../types/type";
+import { useBucket } from "../Hooks/Context";
 const TreatmentsScreen = ({ route }: TreatmentsItemProps) => {
-  const data = route?.params.data;
+  const navigation = useNavigation<EmployeeNavigationProps | any>();
+  const data = route?.params.data.Treatment;
+  const FullData = route?.params.data;
   const [selectedTreatment, setSelectedTreatment] = useState<number | null>(0);
   const [selectedTreatmentDetailsItem, setSelectedTreatmentDetailsItem] =
-    useState<null | number>(null);
+    useState<any[]>([]);
   const [selectedTreatmentDetails, setSelectedTreatmentDetails] =
     useState<any>(null);
+
+  const { setSelectedTreatmentBucket } = useBucket();
+
+  setSelectedTreatmentBucket(selectedTreatmentDetailsItem);
+
+  const Navigate = () => {
+    if (selectedTreatmentDetailsItem.length > 0) {
+      navigation.navigate("Employee", {
+        data: FullData?.Employees,
+      });
+      setSelectedTreatmentDetailsItem([]);
+    } else {
+      alert("Please Select Treatment");
+      return;
+    }
+  };
 
   useMemo(() => {
     if (
@@ -94,7 +48,13 @@ const TreatmentsScreen = ({ route }: TreatmentsItemProps) => {
   return (
     <SafeArea gray>
       <View style={TreatmentsStyle.container}>
-        <BackButton color="#000" title="Select Treatment" />
+        <BackButton
+          color="#000"
+          title="Select Treatment"
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
         <View style={TreatmentsStyle.TreatmentFilter}>
           <FlatList
             data={data}
@@ -124,21 +84,30 @@ const TreatmentsScreen = ({ route }: TreatmentsItemProps) => {
               <TreatmentDetails
                 key={index + 1}
                 item={item}
-                selected={selectedTreatmentDetailsItem === index}
+                selected={selectedTreatmentDetailsItem
+                  .map((item: any) => item.id)
+                  .includes(item.id)}
                 onPress={() => {
-                  setSelectedTreatmentDetailsItem(index);
+                  setSelectedTreatmentDetailsItem([
+                    ...selectedTreatmentDetailsItem,
+                    item,
+                  ]);
                 }}
               />
             )}
             numColumns={2}
             showsVerticalScrollIndicator={false}
-            scrollEnabled={false}
             style={{
               flex: 1,
             }}
           />
         </View>
-        <Button title="Book" />
+        <Button
+          title="Next"
+          ButtonPress={() => {
+            Navigate();
+          }}
+        />
       </View>
     </SafeArea>
   );

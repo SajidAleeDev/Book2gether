@@ -1,10 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import StackNavigator from "./src/StackNavigator";
-import * as SplashScreen from "expo-splash-screen";
-import { View, StyleSheet } from "react-native";
-import React, { useCallback, useMemo } from "react";
 import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import React, { useCallback, useMemo } from "react";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { ContextProvider } from "./src/Hooks/Context";
+import StackNavigator from "./src/StackNavigator";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -36,11 +37,13 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <StackNavigator />
-        </NavigationContainer>
-      </SafeAreaProvider>
+      <ContextProvider>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <StackNavigator />
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </ContextProvider>
     </View>
   );
 }

@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BellIcon, CompassIcon, User } from "lucide-react-native";
 import React from "react";
 import HomeIcon from "../assets/Svg/HomeIcon";
+import EmployeeScreen from "./Screens/EmployeeScreen";
 import Home from "./Screens/Home";
 import LanguageScreen from "./Screens/LanguageScreen";
 import LocationScreen from "./Screens/LocationScreen";
@@ -12,6 +13,7 @@ import NotificationScreen from "./Screens/NotificationScreen";
 import Profile from "./Screens/Profile";
 import SalonDetails from "./Screens/SalonDetails";
 import ServiceScreen from "./Screens/ServiceScreen";
+import TimeTableScreen from "./Screens/TimeTableScreen";
 import TreatmentsScreen from "./Screens/TreatmentsScreen";
 
 const StackNavigator = () => {
@@ -111,6 +113,8 @@ const StackNavigator = () => {
       <Stack.Screen name="Service" component={ServiceScreen} />
       <Stack.Screen name="SalonDetails" component={SalonDetails} />
       <Stack.Screen name="Treatments" component={TreatmentsScreen} />
+      <Stack.Screen name="Employee" component={EmployeeScreen} />
+      <Stack.Screen name="TimeTable" component={TimeTableScreen} />
       <Stack.Screen name="MyTab" component={MyTabs} />
     </Stack.Navigator>
   );

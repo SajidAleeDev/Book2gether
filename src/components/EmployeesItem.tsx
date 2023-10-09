@@ -1,21 +1,56 @@
-import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
-import { EmployeeProps } from "../types/type";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { EmployeePropsItem } from "../types/type";
+import { Platform } from "react-native";
 
-const EmployeesItem = ({ item }: EmployeeProps) => {
+const EmployeesItem = ({
+  item,
+  selectedEmployee,
+  ...props
+}: EmployeePropsItem & TouchableOpacity["props"]) => {
+  const ios = Platform.OS === "ios";
   return (
-    <View
-      style={{
-        ...EmployeesItemStyles.container,
-      }}
+    <TouchableOpacity
+      activeOpacity={0.3}
+      {...props}
+      style={[
+        EmployeesItemStyles.container,
+        {
+          backgroundColor: selectedEmployee ? "#75BDE0" : "#fff",
+          margin: ios ? 0 : 4,
+        },
+      ]}
     >
-      <Image source={item.Image} style={EmployeesItemStyles.Image} />
+      <Image
+        source={{
+          uri: item?.Image,
+        }}
+        style={EmployeesItemStyles.Image}
+      />
 
       <View style={{ alignItems: "center" }}>
-        <Text style={EmployeesItemStyles.MainTitle}>{item?.name}</Text>
-        <Text style={EmployeesItemStyles.Expertise}>{item?.Expertise}</Text>
+        <Text
+          style={[
+            EmployeesItemStyles.MainTitle,
+            {
+              color: selectedEmployee ? "#fff" : "#000",
+            },
+          ]}
+        >
+          {item?.name}
+        </Text>
+        <Text
+          style={[
+            EmployeesItemStyles.Expertise,
+            {
+              color: selectedEmployee ? "#fff" : "#A4A4A4",
+            },
+          ]}
+        >
+          {item?.Expertise}
+        </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -23,9 +58,13 @@ export default EmployeesItem;
 
 export const EmployeesItemStyles = StyleSheet.create({
   container: {
-    marginRight: 10,
+    width: 107,
+
+    marginBottom: 10,
+    padding: 10,
     alignItems: "center",
     justifyContent: "space-between",
+    borderRadius: 10,
   },
   Image: {
     width: 66,
@@ -39,13 +78,11 @@ export const EmployeesItemStyles = StyleSheet.create({
     fontFamily: "popins-semibold",
     fontWeight: "600",
     lineHeight: 19,
-    color: "#212121",
   },
   Expertise: {
     fontSize: 13,
     fontFamily: "popins-regular",
     fontWeight: "400",
     lineHeight: 17,
-    color: "#A4A4A4",
   },
 });

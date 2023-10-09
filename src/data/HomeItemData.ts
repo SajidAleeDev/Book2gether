@@ -53,6 +53,116 @@ export const HomeItemData: ReturnProps[] = [
         Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
         Expertise: "Hair Stylist",
       },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
+      {
+        name: "John Doe",
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Expertise: "Hair Stylist",
+      },
     ],
 
     Treatment: [
@@ -60,46 +170,25 @@ export const HomeItemData: ReturnProps[] = [
         name: "Haircut",
         Treatments: [
           {
-            name: "sajid",
-            duration: "1 Hour",
-            price: "$100",
-          },
-          {
+            id: Math.random() * 10000000,
             name: "Hair straightening",
             duration: "1 Hour",
             price: "$100",
           },
           {
+            id: Math.random() * 10000000,
             name: "Hair straightening",
             duration: "1 Hour",
             price: "$100",
           },
           {
-            name: "Hair straightening",
-            duration: "1 Hour",
-            price: "$100",
-          },
-        ],
-      },
-      {
-        name: "Haircut",
-        Treatments: [
-          {
+            id: Math.random() * 10000000,
             name: "Hair straightening",
             duration: "1 Hour",
             price: "$100",
           },
           {
-            name: "Hair straightening",
-            duration: "1 Hour",
-            price: "$100",
-          },
-          {
-            name: "Hair straightening",
-            duration: "1 Hour",
-            price: "$100",
-          },
-          {
+            id: Math.random() * 10000000,
             name: "Hair straightening",
             duration: "1 Hour",
             price: "$100",
@@ -110,21 +199,54 @@ export const HomeItemData: ReturnProps[] = [
         name: "Haircut",
         Treatments: [
           {
+            id: Math.random() * 10000000,
             name: "Hair straightening",
             duration: "1 Hour",
             price: "$100",
           },
           {
+            id: Math.random() * 10000000,
             name: "Hair straightening",
             duration: "1 Hour",
             price: "$100",
           },
           {
+            id: Math.random() * 10000000,
             name: "Hair straightening",
             duration: "1 Hour",
             price: "$100",
           },
           {
+            id: Math.random() * 10000000,
+            name: "Hair straightening",
+            duration: "1 Hour",
+            price: "$100",
+          },
+        ],
+      },
+      {
+        name: "Haircut",
+        Treatments: [
+          {
+            id: Math.random() * 10000000,
+            name: "Hair straightening",
+            duration: "1 Hour",
+            price: "$100",
+          },
+          {
+            id: Math.random() * 10000000,
+            name: "Hair straightening",
+            duration: "1 Hour",
+            price: "$100",
+          },
+          {
+            id: Math.random() * 10000000,
+            name: "Hair straightening",
+            duration: "1 Hour",
+            price: "$100",
+          },
+          {
+            id: Math.random() * 10000000,
             name: "Hair straightening",
             duration: "1 Hour",
             price: "$100",

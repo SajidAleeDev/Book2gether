@@ -1,4 +1,4 @@
-import { GestureResponderEvent, Image } from "react-native";
+import { Image } from "react-native";
 
 export interface ReturnProps {
   id: number;
@@ -23,6 +23,7 @@ export interface ReturnProps {
   Treatment: {
     name: string;
     Treatments: {
+      id: number;
       name: string;
       duration: string;
       price: string;
@@ -77,6 +78,29 @@ export interface HomeItemNavigationProps {
 export interface TreatmentsNavigationProps {
   navigate: (arg: string, { data }: { data: any }) => void;
 }
+export interface EmployeeNavigationProps {
+  navigate: (arg: string, { data }: { data: any }) => void;
+}
+
+export interface TimeProps {
+  item: {
+    startTime: string;
+    endTime: string;
+  };
+  SelectedDate: boolean;
+}
+
+export interface Employeeprops {
+  route?: {
+    params: {
+      data: {
+        name: string;
+        Image: string;
+        Expertise: string;
+      }[];
+    };
+  };
+}
 export interface SalonDetailsProps {
   route?: {
     params: {
@@ -115,12 +139,13 @@ export interface DetailsProps {
     | undefined;
 }
 
-export interface EmployeeProps {
+export interface EmployeePropsItem {
   item: {
     name: string;
-    Image: React.ComponentProps<typeof Image>["source"];
+    Image: string;
     Expertise: string;
   };
+  selectedEmployee: boolean;
 }
 
 export interface TreatmentProps {
@@ -150,14 +175,7 @@ export interface ReviewItemProps {
 export interface TreatmentsItemProps {
   route?: {
     params: {
-      data: {
-        name: string;
-        Treatments: {
-          name: string;
-          duration: string;
-          price: string;
-        }[];
-      }[];
+      data: ReturnProps;
     };
   };
 }
@@ -166,4 +184,42 @@ export interface TreatmentDetailsProps {
   name: string;
   duration: string;
   price: string;
+}
+
+export interface BucketProvider {
+  children: React.ReactNode;
+}
+
+export interface BucketContext {
+  user: null;
+  setUser: (user: null) => void;
+  selectedSalon: SalonCartProps | null;
+  setSelectedSalon: (selectedSalon: SalonCartProps | null) => void;
+  selectedDate: string | null;
+  setSelectedDate: (selectedDate: string) => void;
+  selectedTreatmentBucket: SalonTreatment[] | null;
+  setSelectedTreatmentBucket: (
+    selectedTreatment: SalonTreatment[] | null
+  ) => void;
+  selectedEmployee: EmployeePropsBucket | null;
+  setSelectedEmployee: (selectedEmployee: EmployeePropsBucket) => void;
+}
+
+export interface SalonCartProps {
+  SalonImage?: string;
+  SalonName?: string;
+  SalonAddress?: string;
+  SalonNumber?: string;
+}
+
+export interface SalonTreatment {
+  name: string;
+  duration: string;
+  price: string;
+}
+
+export interface EmployeePropsBucket {
+  name: string;
+  Image: string;
+  Expertise: string;
 }

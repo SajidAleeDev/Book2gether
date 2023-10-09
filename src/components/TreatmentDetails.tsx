@@ -74,14 +74,14 @@ export const TreatmentDetailsStyle = StyleSheet.create({
     height: 117,
 
     borderRadius: 20,
-    shadowColor: "#000",
+    shadowColor: "rgba(0,0,0,0.4)",
     shadowOffset: {
       width: 3,
       height: 4,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
+    elevation: 4,
   },
   Title: {
     fontSize: 16,
