@@ -9,4 +9,6 @@ export const Images = {
   Beautician: require("./beautician.png"),
   Pedicure: require("./pedicure.png"),
   Barber: require("./Barber-Image.png"),
+  CoinIcon: require("./Coin.jpg"),
+  Logo: require("./Logo.png"),
 };

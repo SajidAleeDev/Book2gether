@@ -7,7 +7,6 @@ import SafeArea from "../components/SafeArea";
 import TreatmentButton from "../components/TreatmentButton";
 import TreatmentDetails from "../components/TreatmentDetails";
 import { EmployeeNavigationProps, TreatmentsItemProps } from "../types/type";
-import { useBucket } from "../Hooks/Context";
 const TreatmentsScreen = ({ route }: TreatmentsItemProps) => {
   const navigation = useNavigation<EmployeeNavigationProps | any>();
   const data = route?.params.data.Treatment;
@@ -18,12 +17,14 @@ const TreatmentsScreen = ({ route }: TreatmentsItemProps) => {
   const [selectedTreatmentDetails, setSelectedTreatmentDetails] =
     useState<any>(null);
 
-  const { setSelectedTreatmentBucket } = useBucket();
-
-  setSelectedTreatmentBucket(selectedTreatmentDetailsItem);
+  
+  
+  
 
   const Navigate = () => {
     if (selectedTreatmentDetailsItem.length > 0) {
+      
+      
       navigation.navigate("Employee", {
         data: FullData?.Employees,
       });

@@ -2,30 +2,20 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { useNavigation } from "@react-navigation/native";
 import { Dot, MapPin, PhoneCall } from "lucide-react-native";
 import React, { useEffect, useState } from "react";
-import {
-  Dimensions,
-  Image,
-  Platform,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+import { Image, Text, View } from "react-native";
 import StarRating from "react-native-star-rating-widget";
-import { useBucket } from "../Hooks/Context";
 import { SalonDetailsStyle } from "../Styles/SalonDetailsStyle";
 import BackButton from "../components/BackButton";
+import Button from "../components/Button";
 import { HomeItemData } from "../data/HomeItemData";
 import { SalonDetailsProps, TreatmentsNavigationProps } from "../types/type";
 import Details from "./Details";
 import Reviews from "./Reviews";
-import Button from "../components/Button";
 
 const SalonDetails = ({ route }: SalonDetailsProps) => {
   const Tab = createMaterialTopTabNavigator();
   const id = route?.params?.id;
   const [data, setData] = useState<any>(null);
-
-  const { setSelectedSalon } = useBucket();
 
   useEffect(() => {
     if (id) {
@@ -41,18 +31,30 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
     fetchDataById(id as number);
   }
   const navigation = useNavigation<TreatmentsNavigationProps | any>();
+
   function Navigate() {
-    setSelectedSalon({
-      SalonName: data?.name,
-      SalonAddress: data?.Location,
-      SalonNumber: data?.number,
-    });
     navigation.navigate("Treatments", {
       data: data,
     });
   }
+
   return (
     <View style={SalonDetailsStyle.container}>
+        <BackButton
+           onPress={() => navigation.goBack()}
+           color="#fff"
+           style={{
+             position: "absolute",
+             top: 30,
+             left: 10,
+             zIndex: 1,
+             width: 40,
+             height: 40,
+             borderRadius: 20,
+             alignItems: "center",
+             justifyContent: "center",
+           }}
+        />
       <View style={SalonDetailsStyle.ImageContainer}>
         <Image
           source={{
@@ -62,21 +64,6 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
         />
         <View style={SalonDetailsStyle.overlay} />
       </View>
-      <BackButton
-        onPress={() => navigation.goBack()}
-        color="#fff"
-        style={{
-          position: "absolute",
-          top: 30,
-          left: 10,
-          zIndex: 1,
-          width: 40,
-          height: 40,
-          borderRadius: 20,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      />
       <View style={SalonDetailsStyle.ContentContainerWrapper}>
         <View style={SalonDetailsStyle.ContentContainer}>
           <View style={SalonDetailsStyle.TextContainer}>

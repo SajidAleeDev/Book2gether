@@ -6,6 +6,7 @@ import { Platform } from "react-native";
 const EmployeesItem = ({
   item,
   selectedEmployee,
+
   ...props
 }: EmployeePropsItem & TouchableOpacity["props"]) => {
   const ios = Platform.OS === "ios";
@@ -17,6 +18,7 @@ const EmployeesItem = ({
         EmployeesItemStyles.container,
         {
           backgroundColor: selectedEmployee ? "#75BDE0" : "#fff",
+          
           margin: ios ? 0 : 4,
         },
       ]}

@@ -11,6 +11,7 @@ export const ImageStyle = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
+    
   },
   containerDescription: {
     paddingHorizontal: 20,

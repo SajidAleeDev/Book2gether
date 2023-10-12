@@ -2,51 +2,38 @@ import React, { createContext, useContext, useState } from "react";
 import {
   BucketContext,
   BucketProvider,
-  EmployeePropsBucket,
-  SalonCartProps,
-  SalonTreatment,
+
 } from "../types/type";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Bucket = createContext<BucketContext>({
   user: null,
   setUser: () => {},
-  selectedSalon: null,
-  setSelectedSalon: () => {},
-  selectedTreatmentBucket: null,
-  setSelectedTreatmentBucket: () => {},
-  selectedDate: null,
-  setSelectedDate: () => {},
-  selectedEmployee: null,
-  setSelectedEmployee: () => {},
+  saveUser: () => {},
+  
 });
 
 export const ContextProvider = ({ children }: BucketProvider) => {
   const [user, setUser] = useState<null>(null);
-  const [selectedSalon, setSelectedSalon] = useState<SalonCartProps | null>(
-    null
-  );
-  const [selectedTreatmentBucket, setSelectedTreatmentBucket] = useState<
-    SalonTreatment[] | null
-  >([]);
-  const [selectedEmployee, setSelectedEmployee] =
-    useState<EmployeePropsBucket | null>(null);
-  const [selectedDate, setSelectedDate] = useState<any>(null);
+  
+      
+  function saveUser(user: any) {
+    setUser(user);
+  }
+     
 
-  console.log(selectedEmployee?.name, "selectedSalon");
+    
+  
+  
 
-  return (
+   
+    return (
     <Bucket.Provider
       value={{
         user: user,
-        setUser: setUser,
-        selectedSalon: selectedSalon,
-        setSelectedSalon: setSelectedSalon,
-        selectedTreatmentBucket: selectedTreatmentBucket,
-        setSelectedTreatmentBucket: setSelectedTreatmentBucket,
-        selectedEmployee: selectedEmployee,
-        setSelectedEmployee: setSelectedEmployee,
-        selectedDate: selectedDate,
-        setSelectedDate: setSelectedDate,
+        saveUser: saveUser,
+        
+        
       }}
     >
       {children}

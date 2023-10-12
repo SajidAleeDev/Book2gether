@@ -4,13 +4,15 @@ import { TreatmentDetailsProps } from "../types/type";
 import { Banknote, Clock7 } from "lucide-react-native";
 
 interface props {
-  item: TreatmentDetailsProps;
-  selected: boolean;
+  item: TreatmentDetailsProps | any;
+  selected?: boolean;
+  overView?: boolean;
 }
 
 const TreatmentDetails = ({
   item,
   selected,
+  overView,
   ...props
 }: props & TouchableOpacity["props"]) => {
   return (
@@ -20,6 +22,7 @@ const TreatmentDetails = ({
         TreatmentDetailsStyle.container,
         {
           backgroundColor: selected ? "#75BDE0" : "#fff",
+          height: overView ? 80 : 117,
         },
       ]}
     >
@@ -27,7 +30,8 @@ const TreatmentDetails = ({
         style={[
           TreatmentDetailsStyle.Title,
           {
-            color: selected ? "#fff" : "#000",
+            color: selected ? "#fff" : overView ? "#A4A4A4" : "#000",
+            fontWeight : overView ? "500" : "600"
           },
         ]}
       >
@@ -46,19 +50,21 @@ const TreatmentDetails = ({
           {item.duration}
         </Text>
       </View>
-      <View style={TreatmentDetailsStyle.IconText}>
-        <Banknote size={18} color={selected ? "#fff" : "#000"} />
-        <Text
-          style={{
-            marginLeft: 6,
-            color: selected ? "#fff" : "#A4A4A4",
-            fontSize: 14,
-            fontWeight: "400",
-          }}
-        >
-          {item.price}
-        </Text>
-      </View>
+      {item.price && (
+        <View style={TreatmentDetailsStyle.IconText}>
+          <Banknote size={18} color={selected ? "#fff" : "#000"} />
+          <Text
+            style={{
+              marginLeft: 6,
+              color: selected ? "#fff" : "#A4A4A4",
+              fontSize: 14,
+              fontWeight: "400",
+            }}
+          >
+            {}
+          </Text>
+        </View>
+      )}
     </TouchableOpacity>
   );
 };
@@ -70,8 +76,7 @@ export const TreatmentDetailsStyle = StyleSheet.create({
     flex: 1,
     margin: 10,
     marginHorizontal: 5,
-    padding: 10,
-    height: 117,
+    padding: 14,
 
     borderRadius: 20,
     shadowColor: "rgba(0,0,0,0.4)",

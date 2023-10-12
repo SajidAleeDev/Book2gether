@@ -1,36 +1,76 @@
+import { useNavigation } from "@react-navigation/native";
 import { ArrowLeft, ArrowRight } from "lucide-react-native";
 import { useState } from "react";
 import {
   FlatList,
   StyleSheet,
   Text,
-  TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import CalendarPicker from "react-native-calendar-picker";
 import BackButton from "../components/BackButton";
 import Button from "../components/Button";
+import DateTimeItem from "../components/DateTimeItem";
 import SafeArea from "../components/SafeArea";
 import { TimeData } from "../data/TimeData";
-import { TimeProps } from "../types/type";
-import DateTimeItem from "../components/DateTimeItem";
-import { useBucket } from "../Hooks/Context";
+import { NavigationProps, SelectedTimeProps } from "../types/type";
 
 const TimeTableScreen = () => {
-  const [selectedDate, setSelectedData] = useState<number | null>(null);
+  const [selectedTime, setSelectedTime] = useState<SelectedTimeProps | null>(null);
+  const [date , setDate] = useState<string>('')
+ 
+  const navigation:NavigationProps = useNavigation();
 
-  console.log(selectedDate);
+
+  
+
+ 
+
+
+ 
+
+  const Navigate = () => {
+    if (selectedTime === null) {
+      alert("Please Select Time");
+    } else {
+      
+      navigation.navigate("Overview");
+    }
+  };
+
+
+ 
+
+  
 
   return (
     <SafeArea>
       <View style={TimeTableStyle.container}>
-        <BackButton color="#000" title="Select Date & Time" />
+        <BackButton color="#000" title="Select Date & Time" onPress={() => navigation.goBack()} />
         <View style={{ flex: 1, marginTop: 20 }}>
           <CalendarPicker
             nextComponent={<ArrowRight size={24} color="#000" />}
             previousComponent={<ArrowLeft size={24} color="#000" />}
             scrollable={false}
-            onDateChange={(date) => console.log(date.toString())}
+            onDateChange={(date) => setDate(date.toString().slice(0, 15)
+              )}
+            
+            weekdays={["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]}
+            months={[
+              "January",
+              "Febraury",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "Octomber",
+              "November",
+              "December",
+            ]}
+            
             textStyle={{ color: "#000" }}
             todayBackgroundColor="#fff"
             todayTextStyle={{
@@ -54,6 +94,9 @@ const TimeTableScreen = () => {
               padding: 10,
             }}
             dayShape="square"
+
+
+             
           />
           <View style={TimeTableStyle.TimeContainer}>
             <Text style={TimeTableStyle.TimeText}>Available Time Slots</Text>
@@ -62,8 +105,8 @@ const TimeTableScreen = () => {
               renderItem={({ item, index }) => (
                 <DateTimeItem
                   item={item}
-                  onPress={() => setSelectedData(index)}
-                  SelectedDate={selectedDate === index}
+                  onPress={() => setSelectedTime(item)}
+                  SelectedDate={selectedTime === item}
                 />
               )}
               numColumns={3}
@@ -72,7 +115,12 @@ const TimeTableScreen = () => {
             />
           </View>
         </View>
-        <Button title="Next" />
+        <Button title="Next"  
+          ButtonPress={()=>{
+             Navigate()
+          } }
+           
+          />
       </View>
     </SafeArea>
   );
