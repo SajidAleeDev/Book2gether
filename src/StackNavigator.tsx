@@ -15,6 +15,7 @@ import SalonDetails from "./Screens/SalonDetails";
 import ServiceScreen from "./Screens/ServiceScreen";
 import TimeTableScreen from "./Screens/TimeTableScreen";
 import TreatmentsScreen from "./Screens/TreatmentsScreen";
+import UserProfile from "./components/UserProfile";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -116,6 +117,8 @@ const StackNavigator = () => {
       <Stack.Screen name="Employee" component={EmployeeScreen} />
       <Stack.Screen name="TimeTable" component={TimeTableScreen} />
       <Stack.Screen name="MyTab" component={MyTabs} />
+      <Stack.Screen name="UserProfile" component={UserProfile} />
+      <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   );
 };

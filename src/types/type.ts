@@ -89,7 +89,14 @@ export interface TimeProps {
   };
   SelectedDate: boolean;
 }
-
+export interface notificationProps {
+  item: {
+    comments: string;
+    status: string;
+    Image: string;
+  };
+  SelectedDate: boolean;
+}
 export interface Employeeprops {
   route?: {
     params: {
@@ -131,12 +138,12 @@ export interface OpenTimeTextProps {
 
 export interface DetailsProps {
   route?:
-    | {
-        params: {
-          data: ReturnProps;
-        };
-      }
-    | undefined;
+  | {
+    params: {
+      data: ReturnProps;
+    };
+  }
+  | undefined;
 }
 
 export interface EmployeePropsItem {
@@ -222,4 +229,11 @@ export interface EmployeePropsBucket {
   name: string;
   Image: string;
   Expertise: string;
+}
+export interface UserProfileProps {
+
+  updateProfileImage: (imageUri: string) => void;
+}
+export interface ImagePickerProps {
+  updateProfileImage: (imageUri: string) => void;
 }
