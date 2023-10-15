@@ -44,6 +44,7 @@ export interface BackButtonProps {
 
 export interface NavigationProps {
   navigate: (arg: string) => void;
+  goBack?: any
 }
 
 export interface children {
@@ -64,12 +65,15 @@ export interface ButtonProps {
   title: string;
   ButtonPress?: () => void;
   SkipButtonPress?: () => void;
+  modalButton?: boolean;
 }
 
 export interface InputProps {
   icon?: React.ReactNode;
   width?: number;
   height?: number;
+  marginBottom?:number
+  
 }
 
 export interface HomeItemNavigationProps {
@@ -89,14 +93,7 @@ export interface TimeProps {
   };
   SelectedDate: boolean;
 }
-export interface notificationProps {
-  item: {
-    comments: string;
-    status: string;
-    Image: string;
-  };
-  SelectedDate: boolean;
-}
+
 export interface Employeeprops {
   route?: {
     params: {
@@ -138,12 +135,12 @@ export interface OpenTimeTextProps {
 
 export interface DetailsProps {
   route?:
-  | {
-    params: {
-      data: ReturnProps;
-    };
-  }
-  | undefined;
+    | {
+        params: {
+          data: ReturnProps;
+        };
+      }
+    | undefined;
 }
 
 export interface EmployeePropsItem {
@@ -187,6 +184,11 @@ export interface TreatmentsItemProps {
   };
 }
 
+export interface SelectedTimeProps {
+  startTime: string;
+  endTime: string;
+}
+
 export interface TreatmentDetailsProps {
   name: string;
   duration: string;
@@ -199,41 +201,51 @@ export interface BucketProvider {
 
 export interface BucketContext {
   user: null;
-  setUser: (user: null) => void;
-  selectedSalon: SalonCartProps | null;
-  setSelectedSalon: (selectedSalon: SalonCartProps | null) => void;
-  selectedDate: string | null;
-  setSelectedDate: (selectedDate: string) => void;
-  selectedTreatmentBucket: SalonTreatment[] | null;
-  setSelectedTreatmentBucket: (
-    selectedTreatment: SalonTreatment[] | null
-  ) => void;
-  selectedEmployee: EmployeePropsBucket | null;
-  setSelectedEmployee: (selectedEmployee: EmployeePropsBucket) => void;
+  setUser?: () => void;
+  saveUser: (user: null) => void;
 }
 
-export interface SalonCartProps {
-  SalonImage?: string;
-  SalonName?: string;
-  SalonAddress?: string;
-  SalonNumber?: string;
+export interface BucketProps {
+  children: React.ReactNode;
 }
 
-export interface SalonTreatment {
+type Treatment = {
+  id: number;
   name: string;
   duration: string;
-  price: string;
-}
+};
 
-export interface EmployeePropsBucket {
+type Employee = {
   name: string;
   Image: string;
   Expertise: string;
-}
-export interface UserProfileProps {
+};
 
-  updateProfileImage: (imageUri: string) => void;
+export interface OverviewScreenDataPoops {
+  ImageUrl: string;
+  name: string;
+  Location: string;
+  city: string;
+  number: string;
+  TotalPrice: number;
+  Date: string;
+  Time: string;
+
+  Treatments: Treatment[];
+
+  Employees: Employee;
 }
-export interface ImagePickerProps {
-  updateProfileImage: (imageUri: string) => void;
+
+export interface ModelProps {
+  modalVisible: boolean;
+  setModalVisible: (arg: boolean) => void;
+  
+
+  image: ImageProps["ImageSource"];
+  Title: string;
+  Description: string;
+  ButtonTitle: string;
+  HandleClicked: () => void;
+  
+  
 }

@@ -15,7 +15,11 @@ import SalonDetails from "./Screens/SalonDetails";
 import ServiceScreen from "./Screens/ServiceScreen";
 import TimeTableScreen from "./Screens/TimeTableScreen";
 import TreatmentsScreen from "./Screens/TreatmentsScreen";
-import UserProfile from "./components/UserProfile";
+import OverviewScreen from "./Screens/OverviewScreen";
+import LoginScreen from "./Screens/LoginScreen";
+import { useBucket } from "./Hooks/Context";
+import RegisterScreen from "./Screens/RegisterScreen";
+import OTP from "./Screens/OTP";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -97,10 +101,70 @@ const StackNavigator = () => {
       </Tab.Navigator>
     );
   }
+  const { user } = useBucket();
 
+  const authenticatedRoutes = [
+    {
+      name: "Language",
+      component: LanguageScreen,
+    },
+
+    {
+      name: "Notification",
+      component: NotificationScreen,
+    },
+    {
+      name: "Location",
+      component: LocationScreen,
+    },
+    {
+      name: "Service",
+      component: ServiceScreen,
+    },
+    {
+      name: "MyTab",
+      component: MyTabs,
+    },
+    {
+      name: "SalonDetails",
+      component: SalonDetails,
+    },
+    {
+      name: "Treatments",
+      component: TreatmentsScreen,
+    },
+    {
+      name: "Employee",
+      component: EmployeeScreen,
+    },
+    {
+      name: "TimeTable",
+      component: TimeTableScreen,
+    },
+    {
+      name: "Overview",
+      component: OverviewScreen,
+    },
+  ];
+  const unAuthenticatedRoutes = [
+    {
+      name: "Login",
+      component: LoginScreen,
+    },
+     {
+      name: "Register",
+      component: RegisterScreen,
+     },
+     {
+       name : "OPT",
+       component: OTP
+     }
+  ];
+
+  const Routes = !user ? unAuthenticatedRoutes : authenticatedRoutes 
   return (
     <Stack.Navigator
-      initialRouteName="Language"
+      initialRouteName={Routes[0].name}
       screenOptions={{
         headerShown: false,
         contentStyle: {
@@ -108,19 +172,18 @@ const StackNavigator = () => {
         },
       }}
     >
-      <Stack.Screen name="Language" component={LanguageScreen} />
-      <Stack.Screen name="Notification" component={NotificationScreen} />
-      <Stack.Screen name="Location" component={LocationScreen} />
-      <Stack.Screen name="Service" component={ServiceScreen} />
-      <Stack.Screen name="SalonDetails" component={SalonDetails} />
-      <Stack.Screen name="Treatments" component={TreatmentsScreen} />
-      <Stack.Screen name="Employee" component={EmployeeScreen} />
-      <Stack.Screen name="TimeTable" component={TimeTableScreen} />
-      <Stack.Screen name="MyTab" component={MyTabs} />
-      <Stack.Screen name="UserProfile" component={UserProfile} />
-      <Stack.Screen name="Profile" component={Profile} />
+      {Routes.map((route) => {
+        return (
+          <Stack.Screen
+            key={route.name}
+            name={route.name}
+            component={route.component}
+          />
+        );
+      })}
     </Stack.Navigator>
   );
 };
 
 export default StackNavigator;
+

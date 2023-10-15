@@ -6,6 +6,7 @@ const Input = ({
   icon,
   width,
   height,
+  marginBottom,
   ...props
 }: InputProps & React.ComponentProps<typeof TextInput>) => {
   return (
@@ -15,6 +16,7 @@ const Input = ({
         {
           width: width ? width : "100%",
           height: height ? height : 59,
+          marginBottom : marginBottom
         },
       ]}
     >

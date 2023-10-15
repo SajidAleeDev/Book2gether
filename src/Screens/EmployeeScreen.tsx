@@ -1,7 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import { useBucket } from "../Hooks/Context";
 import BackButton from "../components/BackButton";
 import Button from "../components/Button";
 import EmployeesItem from "../components/EmployeesItem";
@@ -19,10 +18,9 @@ const EmployeeScreen = ({ route }: Employeeprops) => {
   >(null);
   const navigation = useNavigation<NavigationProps | any>();
 
-  const { setSelectedEmployee } = useBucket();
-
+ 
   const Navigate = () => {
-    setSelectedEmployee(selectedEmployees);
+    
     if (selectedEmployees !== null) {
       navigation.navigate("TimeTable");
     } else {

@@ -3,7 +3,7 @@ export const ButtonStyle = StyleSheet.create({
   ButtonBackground: {
     backgroundColor: "#75BDE0",
     height: 50,
-    width: 350,
+
     borderRadius: 16,
     justifyContent: "center",
     alignItems: "center",

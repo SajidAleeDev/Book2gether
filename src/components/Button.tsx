@@ -3,18 +3,27 @@ import React from "react";
 import { ButtonProps } from "../types/type";
 import { ButtonStyle } from "../Styles/Button";
 
-const Button = ({ skip, title, ButtonPress, SkipButtonPress }: ButtonProps) => {
+const Button = ({
+  skip,
+  title,
+  ButtonPress,
+  SkipButtonPress,
+  modalButton,
+}: ButtonProps) => {
   return (
     <View
       style={[
         ButtonStyle.container,
         {
           height: skip ? 88 : 60,
+          
         },
       ]}
     >
       <TouchableOpacity
-        style={ButtonStyle.ButtonBackground}
+        style={[ButtonStyle.ButtonBackground , {
+          width: modalButton ? 290 : 350,
+        }]}
         onPress={ButtonPress}
       >
         <Text style={ButtonStyle.Text}>{title}</Text>

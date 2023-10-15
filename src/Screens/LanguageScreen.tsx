@@ -14,7 +14,7 @@ const LanguageScreen = () => {
   return (
     <SafeArea>
       <View style={LanguageStyle.LanguageHeader}>
-        <Image ImageSource={Images.Language} />
+        <Image ImageSource={Images.Language} lang />
         <ImageDescription
           ImageTitle="Language"
           ImageDescription="Please select the language you'd like to continue with"
