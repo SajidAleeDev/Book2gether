@@ -140,13 +140,13 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
                 tabBarStyle: {
                   backgroundColor: "#fff",
                   elevation: 1,
-                  shadowColor: "#000",
-                  shadowOffset: {
-                    width: 2,
-                    height: 2,
-                  },
-                  shadowRadius: 20,
-                  shadowOpacity: 0.1,
+                  // shadowColor: "#000",
+                  // shadowOffset: {
+                  //   width: 2,
+                  //   height: 2,
+                  // },
+                  // shadowRadius: 20,
+                  // shadowOpacity: 0.1,
                 },
               }}
             >
