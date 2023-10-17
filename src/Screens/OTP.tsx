@@ -29,19 +29,15 @@ const OTP = () => {
     value,
     setValue,
   });
-  const {saveUser} = useBucket()
-
-
+  const { saveUser } = useBucket();
 
   const handleLogin = async () => {
     if (email) return alert("Please fill all the fields");
     setIsLoading(true);
     try {
-
-        saveUser({
-            name : "any"
-        })
-    
+      saveUser({
+        name: "any",
+      });
     } catch (error: any) {
       switch (error.code) {
       }
@@ -50,15 +46,17 @@ const OTP = () => {
     }
   };
 
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   return (
     <SafeArea>
       <View style={styles.container}>
-        <BackButton color="#000" title="Account Verification" onPress={
-          ()=>{
-            navigation.goBack()
-          }
-        } />
+        <BackButton
+          color="#000"
+          title="Account Verification"
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
 
         <View
           style={{
@@ -84,11 +82,15 @@ const OTP = () => {
             cellCount={CELL_COUNT}
             rootStyle={styles.codeFieldRoot}
             keyboardType="number-pad"
+            numberOfLines={1}
+            verticalAlign="bottom"
             textContentType="oneTimeCode"
+            textAlign="center"
+            maxLength={2}
             renderCell={({ index, symbol, isFocused }) => (
               <Text
                 key={index}
-                style={[styles.cell, isFocused && styles.focusCell]}
+                style={[styles.cell]}
                 onLayout={getCellOnLayoutHandler(index)}
               >
                 {symbol || (isFocused ? <Cursor /> : null)}
@@ -108,7 +110,7 @@ const OTP = () => {
             </Text>
           </View>
 
-          <Button title="Verify" ButtonPress={handleLogin }  />
+          <Button title="Verify" ButtonPress={handleLogin} />
         </View>
       </View>
     </SafeArea>
@@ -145,16 +147,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#fff",
     textAlign: "center",
-    borderRadius: 10,
+    borderRadius: 10, //borderRadius
     color: "#15206F",
-    fontFamily: "Poppins-SemiBold",
     backgroundColor: "#fff",
     elevation: 4,
+    shadowOpacity: 0.1,
     textAlignVertical: "center",
+    shadowRadius: 10,
   },
-  focusCell: {
-    borderColor: "#fff",
-  },
+
   codeFieldRoot: {
     width: "100%",
     marginTop: 40,

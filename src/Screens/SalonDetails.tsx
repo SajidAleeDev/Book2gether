@@ -40,21 +40,21 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
 
   return (
     <View style={SalonDetailsStyle.container}>
-        <BackButton
-           onPress={() => navigation.goBack()}
-           color="#fff"
-           style={{
-             position: "absolute",
-             top: 30,
-             left: 10,
-             zIndex: 1,
-             width: 40,
-             height: 40,
-             borderRadius: 20,
-             alignItems: "center",
-             justifyContent: "center",
-           }}
-        />
+      <BackButton
+        onPress={() => navigation.goBack()}
+        color="#fff"
+        style={{
+          position: "absolute",
+          top: 30,
+          left: 10,
+          zIndex: 1,
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      />
       <View style={SalonDetailsStyle.ImageContainer}>
         <Image
           source={{
@@ -145,7 +145,7 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
                     width: 2,
                     height: 2,
                   },
-                  shadowRadius: 20,
+                  shadowRadius: 3,
                   shadowOpacity: 0.1,
                 },
               }}

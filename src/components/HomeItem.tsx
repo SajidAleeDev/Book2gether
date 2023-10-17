@@ -87,7 +87,7 @@ export const HomeItemStyle = StyleSheet.create({
       width: 3,
       height: 3,
     },
-    shadowOpacity: 0.6,
+    shadowOpacity: 0.1,
     borderRadius: 16,
     elevation: 4,
     flexDirection: "row",
@@ -107,6 +107,8 @@ export const HomeItemStyle = StyleSheet.create({
   TextContainer: {
     paddingHorizontal: 3,
     paddingVertical: 10,
+    flex: 1,
+    margin: 6,
   },
   Title: {
     fontSize: 18,
@@ -148,7 +150,7 @@ export const HomeItemStyle = StyleSheet.create({
   Button: {
     backgroundColor: "#75BDE0",
     paddingHorizontal: 20,
-    paddingVertical: 8,
+    paddingVertical: 6,
     borderRadius: 12,
   },
 });

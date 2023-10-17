@@ -203,6 +203,8 @@ export interface BucketContext {
   user: null;
   setUser?: () => void;
   saveUser: (user: null) => void;
+  
+
 }
 
 export interface BucketProps {
@@ -248,4 +250,19 @@ export interface ModelProps {
   HandleClicked: () => void;
   
   
+}
+export interface UserProfileProps {
+
+  updateProfileImage: (imageUri: string) => void;
+}
+export interface ImagePickerProps {
+  updateProfileImage: (imageUri: string) => void;
+}
+export interface notificationProps {
+  item: {
+    comments: string;
+    status: string;
+    Image: string;
+  };
+  SelectedDate: boolean;
 }

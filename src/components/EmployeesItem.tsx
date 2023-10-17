@@ -1,7 +1,14 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { adjustSize } from "../Styles/ServiceStyle";
 import { EmployeePropsItem } from "../types/type";
-import { Platform } from "react-native";
 
 const EmployeesItem = ({
   item,
@@ -18,8 +25,8 @@ const EmployeesItem = ({
         EmployeesItemStyles.container,
         {
           backgroundColor: selectedEmployee ? "#75BDE0" : "#fff",
-          
-          margin: ios ? 0 : 4,
+
+          margin: adjustSize(4),
         },
       ]}
     >
@@ -61,11 +68,21 @@ export default EmployeesItem;
 export const EmployeesItemStyles = StyleSheet.create({
   container: {
     width: 107,
+    margin: 10,
+    shadowColor: "rgba(0,0,0,0.4)",
+    shadowOffset: {
+      width: 3,
+      height: 4,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 4,
 
     marginBottom: 10,
     padding: 10,
     alignItems: "center",
     justifyContent: "space-between",
+
     borderRadius: 10,
   },
   Image: {

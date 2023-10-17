@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { View, ScrollView, FlatList } from "react-native";
+import {
+  View,
+  ScrollView,
+  FlatList,
+  Dimensions,
+  useWindowDimensions,
+} from "react-native";
 import { Images } from "../../assets/Images";
 import { LanguageStyle } from "../Styles/LanguageStyle";
 import { ServiceStyle } from "../Styles/ServiceStyle";
@@ -11,11 +17,13 @@ import ServiceCard from "../components/ServiceCard";
 import { useNavigation } from "@react-navigation/native";
 import { NavigationProps } from "../types/type";
 import { Services } from "../data/ServicesData";
+import { styles } from "./LoginScreen";
 
 const ServiceScreen = () => {
   const [selected, setSelected] = useState<number | null>(null);
   const navigation: NavigationProps = useNavigation();
 
+  const { height, width } = useWindowDimensions();
   function selectedItem(index: number) {
     setSelected(index);
   }

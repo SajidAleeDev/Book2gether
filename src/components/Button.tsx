@@ -16,6 +16,7 @@ const Button = ({
         ButtonStyle.container,
         {
           height: skip ? 88 : 60,
+          marginBottom : skip ? 10 : 14
           
         },
       ]}

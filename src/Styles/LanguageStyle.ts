@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
+import { adjustSize } from "./ServiceStyle";
 
 export const LanguageStyle = StyleSheet.create({
   LanguageHeader: {
-    height: 380,
+    height: adjustSize(280),
   },
   TextContainer: {
     flex: 1,

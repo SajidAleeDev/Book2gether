@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { adjustSize } from "./ServiceStyle";
 
 export const ImageStyle = StyleSheet.create({
   container: {
@@ -11,11 +12,10 @@ export const ImageStyle = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    
   },
   containerDescription: {
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: adjustSize(5),
 
     display: "flex",
     alignItems: "center",

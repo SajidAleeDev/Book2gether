@@ -6,6 +6,7 @@ import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ContextProvider } from "./src/Hooks/Context";
 import StackNavigator from "./src/StackNavigator";
+import { AutocompleteDropdownContextProvider } from "react-native-autocomplete-dropdown";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -40,7 +41,10 @@ export default function App() {
       <ContextProvider>
         <SafeAreaProvider>
           <NavigationContainer>
+          <AutocompleteDropdownContextProvider>
+            
             <StackNavigator />
+          </AutocompleteDropdownContextProvider>
           </NavigationContainer>
         </SafeAreaProvider>
       </ContextProvider>
