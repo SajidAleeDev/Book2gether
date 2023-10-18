@@ -2,12 +2,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useCallback, useMemo } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View,LogBox} from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ContextProvider } from "./src/Hooks/Context";
 import StackNavigator from "./src/StackNavigator";
 import { AutocompleteDropdownContextProvider } from "react-native-autocomplete-dropdown";
-
+// Ignore log notification by message:
+LogBox.ignoreLogs(['Warning: ...']);
+// Ignore all log notifications:
+LogBox.ignoreAllLogs();
 export default function App() {
   let [fontsLoaded] = useFonts({
     "popins-bold": require("./assets/font/Poppins-Bold.ttf"),

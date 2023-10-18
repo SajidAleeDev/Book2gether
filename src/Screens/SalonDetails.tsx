@@ -2,7 +2,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { useNavigation } from "@react-navigation/native";
 import { Dot, MapPin, PhoneCall } from "lucide-react-native";
 import React, { useEffect, useState } from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Text, View ,ScrollView} from "react-native";
 import StarRating from "react-native-star-rating-widget";
 import { SalonDetailsStyle } from "../Styles/SalonDetailsStyle";
 import BackButton from "../components/BackButton";
@@ -55,6 +55,7 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
           justifyContent: "center",
         }}
       />
+      
       <View style={SalonDetailsStyle.ImageContainer}>
         <Image
           source={{

@@ -11,9 +11,9 @@ import {
 } from "react-native";
 import { HomeStyle } from "../Styles/HomeStyle";
 import HomeItem from "../components/HomeItem";
+import { HomeItemData } from "../data/HomeItemData";
 import Input from "../components/Input";
 import SafeArea from "../components/SafeArea";
-import { HomeItemData } from "../data/HomeItemData";
 import { NavigationProps } from "../types/type";
 
 import { useState } from "react";
