@@ -1,39 +1,25 @@
 import React, { createContext, useContext, useState } from "react";
-import {
-  BucketContext,
-  BucketProvider,
-
-} from "../types/type";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { BucketContext, BucketProvider } from "../types/type";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Bucket = createContext<BucketContext>({
   user: null,
   setUser: () => {},
   saveUser: () => {},
-  
 });
 
 export const ContextProvider = ({ children }: BucketProvider) => {
   const [user, setUser] = useState<null>(null);
-  
-      
+
   function saveUser(user: any) {
     setUser(user);
   }
-     
 
-    
-  
-  
-
-   
-    return (
+  return (
     <Bucket.Provider
       value={{
         user: user,
         saveUser: saveUser,
-        
-        
       }}
     >
       {children}

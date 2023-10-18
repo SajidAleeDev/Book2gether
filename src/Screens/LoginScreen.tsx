@@ -17,12 +17,11 @@ import { useNavigation } from "@react-navigation/native";
 import { NavigationProps } from "../types/type";
 
 const LoginScreen = () => {
-  const {saveUser} = useBucket()
+  const { saveUser } = useBucket();
 
-  
-   const navigation:NavigationProps = useNavigation()
+  const navigation: NavigationProps = useNavigation();
 
-    const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   return (
     <View style={styles.container}>
@@ -52,30 +51,27 @@ const LoginScreen = () => {
             icon={<LockIcon size={20} color="#A7A7A7" />}
           />
         </View>
-
       </KeyboardAvoidingView>
-     <View
-        style={styles.ButtonView}
-     >
-     {isLoading ? (
+      <View style={styles.ButtonView}>
+        {isLoading ? (
           <ActivityIndicator size={"large"} color={"#000f"} />
-          ) : (
-              <>
-              <Button title="Login" ButtonPress={()=>{
-                saveUser({name: 'John Doe'})
-              }} />
-         
-        </>
-      )}
-     </View>
+        ) : (
+          <>
+            <Button
+              title="Login"
+              ButtonPress={() => {
+                saveUser({ name: "John Doe" });
+              }}
+            />
+          </>
+        )}
+      </View>
       <View style={styles.bottomSec}>
         <Text style={styles.bottomTxt1}>Don’t have an account? </Text>
         <TouchableOpacity
-         onPress={
-          ()=>{
-            navigation.navigate("Register")
-          }
-         }
+          onPress={() => {
+            navigation.navigate("Register");
+          }}
         >
           <Text style={styles.bottomTxt2}>Sign Up</Text>
         </TouchableOpacity>
@@ -90,35 +86,28 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    
   },
-  
-  
-  
+
   ButtonView: {
     flex: 1,
-
-    justifyContent: "space-between",
-    paddingHorizontal: 20,
-    marginTop: 20
+    marginTop: 20,
   },
-  
+
   Logo: {
     width: 30,
     height: 30,
   },
   Image: {
     height: 228,
-    width: 290,
+    width: 340,
     alignSelf: "center",
     marginTop: 30,
   },
   View: {
     padding: 30,
     marginTop: 40,
-
   },
-  
+
   bottomSec: {
     marginBottom: 10,
     justifyContent: "center",
@@ -127,13 +116,13 @@ export const styles = StyleSheet.create({
   },
   bottomTxt1: {
     color: "#92929D",
-    fontFamily: "Poppins-Medium",
+
     fontSize: 15,
   },
   bottomTxt2: {
     color: "#75BDE0",
-    fontFamily: "Poppins-SemiBold",
+
     fontSize: 15,
-    fontWeight: "600"
+    fontWeight: "600",
   },
 });

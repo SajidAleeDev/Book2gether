@@ -5,7 +5,7 @@ import Button from "./Button";
 import { useNavigation } from "@react-navigation/native";
 import { HomeItemNavigationProps, HomeItemProps } from "../types/type";
 
-const HomeItem = ({ item }: HomeItemProps) => {
+const AppointmentCard = ({ item }: HomeItemProps) => {
   const navigation: HomeItemNavigationProps = useNavigation();
 
   return (
@@ -28,15 +28,6 @@ const HomeItem = ({ item }: HomeItemProps) => {
       <View style={HomeItemStyle.TextContainer}>
         <View style={HomeItemStyle.TitleContainer}>
           <Text style={HomeItemStyle.Title}>{item?.name}</Text>
-          <Dot
-            size={60}
-            style={{
-              position: "absolute",
-              right: -20,
-              top: -22,
-            }}
-            color={item.open ? "#00BA88" : "#FF647C"}
-          />
         </View>
         <Text style={HomeItemStyle.LocationText}>{item.Location}</Text>
         <View style={HomeItemStyle.ButtonContainer}>
@@ -53,7 +44,7 @@ const HomeItem = ({ item }: HomeItemProps) => {
           <TouchableOpacity
             style={HomeItemStyle.Button}
             onPress={() => {
-              navigation.navigate("SalonDetails", {
+              navigation.navigate("AppointmentDetails", {
                 id: item?.id,
               });
             }}
@@ -64,7 +55,7 @@ const HomeItem = ({ item }: HomeItemProps) => {
                 fontFamily: "popins-semibold",
               }}
             >
-              Book
+              Details
             </Text>
           </TouchableOpacity>
         </View>
@@ -73,7 +64,7 @@ const HomeItem = ({ item }: HomeItemProps) => {
   );
 };
 
-export default HomeItem;
+export default AppointmentCard;
 
 export const HomeItemStyle = StyleSheet.create({
   container: {

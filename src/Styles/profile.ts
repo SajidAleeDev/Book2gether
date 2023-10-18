@@ -13,7 +13,7 @@ export const ProfileStyle = StyleSheet.create({
 
   },
   headerHeading: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "700",
     fontFamily: "popins-bold",
     color: "#000000"
@@ -88,6 +88,7 @@ export const ProfileStyle = StyleSheet.create({
   },
   Profileback: {
     flexDirection: "row",
+    alignItems:"center",
 
   },
   backarrow: {

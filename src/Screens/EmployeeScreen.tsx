@@ -18,9 +18,7 @@ const EmployeeScreen = ({ route }: Employeeprops) => {
   >(null);
   const navigation = useNavigation<NavigationProps | any>();
 
- 
   const Navigate = () => {
-    
     if (selectedEmployees !== null) {
       navigation.navigate("TimeTable");
     } else {
@@ -71,10 +69,10 @@ export const EmployeeStyle = StyleSheet.create({
   container: {
     padding: 10,
     flex: 1,
+    paddingBottom: 0,
   },
   ItemContainer: {
-    marginHorizontal: 10,
-    marginVertical: 20,
     flex: 1,
+    alignSelf: "center",
   },
 });

@@ -17,14 +17,8 @@ const TreatmentsScreen = ({ route }: TreatmentsItemProps) => {
   const [selectedTreatmentDetails, setSelectedTreatmentDetails] =
     useState<any>(null);
 
-  
-  
-  
-
   const Navigate = () => {
     if (selectedTreatmentDetailsItem.length > 0) {
-      
-      
       navigation.navigate("Employee", {
         data: FullData?.Employees,
       });
@@ -120,6 +114,7 @@ export const TreatmentsStyle = StyleSheet.create({
   container: {
     flex: 1,
     padding: 13,
+    paddingBottom: 0,
   },
   TreatmentFilter: {
     marginTop: 20,

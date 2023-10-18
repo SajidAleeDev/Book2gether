@@ -20,6 +20,9 @@ import LoginScreen from "./Screens/LoginScreen";
 import { useBucket } from "./Hooks/Context";
 import RegisterScreen from "./Screens/RegisterScreen";
 import OTP from "./Screens/OTP";
+import UserProfile from "./components/UserProfile";
+import AppointmentHistory from "./Screens/AppointmentHistory";
+import AppointmentDetails from "./Screens/AppointmentDetails";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -145,6 +148,22 @@ const StackNavigator = () => {
       name: "Overview",
       component: OverviewScreen,
     },
+    {
+       name : "UserProfile",
+        component: UserProfile
+    },
+    {
+      name : "AppointmentHistory",
+      component: AppointmentHistory
+   },
+   {
+    name : "AppointmentDetails",
+    component: AppointmentDetails
+ },
+   
+
+    
+    
   ];
   const unAuthenticatedRoutes = [
     {

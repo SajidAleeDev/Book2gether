@@ -196,7 +196,7 @@ export const HomeItemData: ReturnProps[] = [
         ],
       },
       {
-        name: "Haircut",
+        name: "Coloring",
         Treatments: [
           {
             id: Math.random() * 10000000,
@@ -225,7 +225,7 @@ export const HomeItemData: ReturnProps[] = [
         ],
       },
       {
-        name: "Haircut",
+        name: "Styling",
         Treatments: [
           {
             id: Math.random() * 10000000,

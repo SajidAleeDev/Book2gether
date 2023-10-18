@@ -9,6 +9,7 @@ export interface ReturnProps {
   city: string;
   number: string;
   Rating: number;
+  charges?:string,
   Employees: {
     name: string;
     Image: string;
@@ -66,6 +67,7 @@ export interface ButtonProps {
   ButtonPress?: () => void;
   SkipButtonPress?: () => void;
   modalButton?: boolean;
+  fontSize?:number
 }
 
 export interface InputProps {
@@ -149,7 +151,7 @@ export interface EmployeePropsItem {
     Image: string;
     Expertise: string;
   };
-  selectedEmployee: boolean;
+  selectedEmployee?: boolean;
 }
 
 export interface TreatmentProps {
@@ -203,6 +205,8 @@ export interface BucketContext {
   user: null;
   setUser?: () => void;
   saveUser: (user: null) => void;
+  
+
 }
 
 export interface BucketProps {
@@ -248,4 +252,19 @@ export interface ModelProps {
   HandleClicked: () => void;
   
   
+}
+export interface UserProfileProps {
+
+  updateProfileImage: (imageUri: string) => void;
+}
+export interface ImagePickerProps {
+  updateProfileImage: (imageUri: string) => void;
+}
+export interface notificationProps {
+  item: {
+    comments: string;
+    status: string;
+    Image: string;
+  };
+  SelectedDate: boolean;
 }

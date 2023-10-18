@@ -18,7 +18,7 @@ const BackButton = ({
       }}
     >
       <TouchableOpacity {...props}>
-        <ArrowLeft size={26} color={color} />
+        <ArrowLeft size={20} color={color} />
       </TouchableOpacity>
       {title && (
         <Text
@@ -27,6 +27,7 @@ const BackButton = ({
             color: "#000",
             fontSize: 18,
             fontWeight: "600",
+            marginTop:5
           }}
         >
           {title}

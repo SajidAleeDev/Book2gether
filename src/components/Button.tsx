@@ -9,6 +9,7 @@ const Button = ({
   ButtonPress,
   SkipButtonPress,
   modalButton,
+  fontSize
 }: ButtonProps) => {
   return (
     <View
@@ -16,6 +17,7 @@ const Button = ({
         ButtonStyle.container,
         {
           height: skip ? 88 : 60,
+          marginBottom : skip ? 10 : 14
           
         },
       ]}
@@ -26,7 +28,7 @@ const Button = ({
         }]}
         onPress={ButtonPress}
       >
-        <Text style={ButtonStyle.Text}>{title}</Text>
+        <Text style={[ButtonStyle.Text,{fontSize:fontSize?fontSize:16}]}>{title}</Text>
       </TouchableOpacity>
       {skip && (
         <TouchableOpacity

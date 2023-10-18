@@ -19,7 +19,7 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
 
   useEffect(() => {
     if (id) {
-      fetchDataById(id);
+      fetchDataById(id)
     }
   }, [id]);
 
@@ -40,21 +40,21 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
 
   return (
     <View style={SalonDetailsStyle.container}>
-        <BackButton
-           onPress={() => navigation.goBack()}
-           color="#fff"
-           style={{
-             position: "absolute",
-             top: 30,
-             left: 10,
-             zIndex: 1,
-             width: 40,
-             height: 40,
-             borderRadius: 20,
-             alignItems: "center",
-             justifyContent: "center",
-           }}
-        />
+      <BackButton
+        onPress={() => navigation.goBack()}
+        color="#fff"
+        style={{
+          position: "absolute",
+          top: 30,
+          left: 10,
+          zIndex: 1,
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      />
       <View style={SalonDetailsStyle.ImageContainer}>
         <Image
           source={{
@@ -127,11 +127,14 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
           >
             <Tab.Navigator
               initialRouteName="Details"
+              // swipeEnabled={false}
               screenOptions={{
+                swipeEnabled:false,
                 tabBarIndicatorStyle: {
                   backgroundColor: "#75BDE0",
                   height: 3,
                   borderRadius: 30,
+                
                 },
                 tabBarLabelStyle: {
                   fontFamily: "popins-medium",
@@ -140,13 +143,13 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
                 tabBarStyle: {
                   backgroundColor: "#fff",
                   elevation: 1,
-                  // shadowColor: "#000",
-                  // shadowOffset: {
-                  //   width: 2,
-                  //   height: 2,
-                  // },
-                  // shadowRadius: 20,
-                  // shadowOpacity: 0.1,
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 2,
+                    height: 2,
+                  },
+                  shadowRadius: 3,
+                  shadowOpacity: 0.1,
                 },
               }}
             >

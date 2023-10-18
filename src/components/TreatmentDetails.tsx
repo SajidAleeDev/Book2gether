@@ -61,7 +61,7 @@ const TreatmentDetails = ({
               fontWeight: "400",
             }}
           >
-            {}
+            {item.price}
           </Text>
         </View>
       )}

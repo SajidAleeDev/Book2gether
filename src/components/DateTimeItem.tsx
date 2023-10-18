@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Text, TouchableOpacity } from "react-native";
 import { TimeTableStyle } from "../Screens/TimeTableScreen";
 import { TimeProps } from "../types/type";

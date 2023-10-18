@@ -21,7 +21,7 @@ import { useNavigation } from "@react-navigation/native";
 const OverviewScreen = () => {
   const [Data, setData] = useState<OverviewScreenDataPoops | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
-  const navigation:NavigationProps = useNavigation()
+  const navigation: NavigationProps = useNavigation();
 
   useEffect(() => {
     setData(OverviewScreenData);
@@ -33,14 +33,14 @@ const OverviewScreen = () => {
     setModalVisible(false);
   };
 
-
-
-
-
   return (
     <SafeArea>
       <View style={OverviewStyle.container}>
-        <BackButton color="#000" title="Overview Appointment"onPress={() => navigation.goBack()} />
+        <BackButton
+          color="#000"
+          title="Overview Appointment"
+          onPress={() => navigation.goBack()}
+        />
         <ScrollView
           style={OverviewStyle.ItemsContainer}
           showsVerticalScrollIndicator={false}
@@ -63,7 +63,9 @@ const OverviewScreen = () => {
               horizontal
               data={Data?.Treatments}
               keyExtractor={(item) => item?.id.toString()}
-              renderItem={({ item }) => <TreatmentDetails item={item}  overView/>}
+              renderItem={({ item }) => (
+                <TreatmentDetails item={item} overView />
+              )}
               showsHorizontalScrollIndicator={false}
               snapToAlignment="start"
               snapToInterval={280}
@@ -192,7 +194,7 @@ const OverviewScreen = () => {
           </View>
         </ScrollView>
         <Button
-          title="Cancel Appointment"
+          title="Confirm Booking"
           ButtonPress={() => setModalVisible(true)}
         />
       </View>
@@ -215,6 +217,7 @@ export const OverviewStyle = StyleSheet.create({
   container: {
     padding: 10,
     flex: 1,
+    paddingVertical: 0,
   },
   ItemsContainer: {
     marginHorizontal: 10,
@@ -280,6 +283,6 @@ export const OverviewStyle = StyleSheet.create({
     fontWeight: "500",
     lineHeight: 16,
     color: "#A7A7A7",
-    marginLeft : -4
+    marginLeft: -4,
   },
 });

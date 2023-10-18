@@ -43,7 +43,7 @@ const Profile = () => {
           imageSource={Images.appoinetment}
           buttonText="Appointment History "
           lastbtn={Images.arrow}
-          destination="Appointment"
+          destination="AppointmentHistory"
         />
         <ProfileItems
           imageSource={Images.notificationicon}
