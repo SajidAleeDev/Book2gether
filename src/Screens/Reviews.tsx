@@ -29,6 +29,7 @@ const Reviews = ({ route }: DetailsProps) => {
         data={data?.Review}
         renderItem={({ item, index }) => <ReviewItem item={item} key={index} />}
         showsVerticalScrollIndicator={false}
+        scrollEnabled
       />
     </View>
   );

@@ -6,11 +6,12 @@ import {
   Text,
   View,
   TextInput,
+  TouchableOpacity,
 } from "react-native";
 import { ModelProps } from "../types/type";
 import Button from "./Button";
 import StarRating from "react-native-star-rating-widget";
-
+import { AntDesign } from '@expo/vector-icons';
 const ReveiwModal = ({
   modalVisible,
   HandleClicked,
@@ -32,6 +33,10 @@ const ReveiwModal = ({
       <View style={styles.centeredView}>
         {!isSubmitted ? (
           <View style={styles.modalView}>
+             <TouchableOpacity style={styles._close_btn} onPress={()=>{setModalVisible(false),setIsSubmitted(false)}}>
+      <AntDesign name="closecircleo" size={24} color="#A4A4A4" />
+            </TouchableOpacity>
+
             <View
               style={{
                 alignContent: "center",
@@ -87,6 +92,9 @@ const ReveiwModal = ({
           // submitted successfully
 
           <View style={styles.modalView}>
+             <TouchableOpacity style={styles._close_btn} onPress={()=>{setModalVisible(false),setIsSubmitted(false)}}>
+      <AntDesign name="closecircleo" size={24} color="#A4A4A4" />
+            </TouchableOpacity>
             <View
               style={{
                 alignContent: "center",
@@ -195,5 +203,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginVertical: 20,
     textAlign:"center"
+  },
+  _close_btn:{
+    alignSelf:"flex-end"
   }
 });

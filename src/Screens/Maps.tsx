@@ -68,7 +68,7 @@ export default function EventsMap({ navigation, route }: any) {
             onPress={()=>setshow(true)}
               key={`coordinate_${index}`}
               image={
-                "https://firebasestorage.googleapis.com/v0/b/cityportal-84540.appspot.com/o/pointer.png?alt=media&token=ab688e54-3fc5-4787-aae4-6c2b382f3e7d&_gl=1*16szer0*_ga*MTY1NTc4Njc0MS4xNjk0NTgwMDkx*_ga_CW55HF8NVT*MTY5NzU5MTk2NS45NC4xLjE2OTc1OTIwNzUuNTIuMC4w"
+                "https://firebasestorage.googleapis.com/v0/b/cityportal-84540.appspot.com/o/Group%20(1).png?alt=media&token=6cf71437-cbc8-440c-b1e7-609588dc5df3&_gl=1*ws5h5w*_ga*MTY1NTc4Njc0MS4xNjk0NTgwMDkx*_ga_CW55HF8NVT*MTY5NzY2NDQ1Ny45NS4xLjE2OTc2NjUxMDEuNTMuMC4w"
               }
               coordinate={coordinate}
             />

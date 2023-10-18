@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 export const ButtonStyle = StyleSheet.create({
   ButtonBackground: {
     backgroundColor: "#75BDE0",
-    height: 50,
+    height: 58,
     borderRadius: 16,
     justifyContent: "center",
     alignItems: "center",

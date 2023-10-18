@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View } from "react-native";
+import { View,StatusBar } from "react-native";
 import { Images } from "../../assets/Images";
 import { LanguageStyle } from "../Styles/LanguageStyle";
 import { NotificationStyle } from "../Styles/Notification";
@@ -14,6 +14,8 @@ const NotificationScreen = () => {
   const navigation: NavigationProps = useNavigation();
   return (
     <SafeArea>
+      <StatusBar backgroundColor="#fff" />
+
       <View style={LanguageStyle.LanguageHeader}>
         <Image ImageSource={Images.Bell} />
         <ImageDescription

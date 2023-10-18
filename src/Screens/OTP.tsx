@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  StatusBar
 } from "react-native";
 import SafeArea from "../components/SafeArea";
 import BackButton from "../components/BackButton";
@@ -20,6 +21,8 @@ import { NavigationProps } from "../types/type";
 import { useBucket } from "../Hooks/Context";
 
 const OTP = () => {
+  const navigation = useNavigation();
+
   const CELL_COUNT = 4;
   const [email, setEmail] = useState<string>("");
   const [value, setValue] = useState<string>("");
@@ -32,12 +35,13 @@ const OTP = () => {
   const { saveUser } = useBucket();
 
   const handleLogin = async () => {
-    if (email) return alert("Please fill all the fields");
+    if (value.length < 4) return alert("Please fill all the fields");
     setIsLoading(true);
     try {
       saveUser({
         name: "any",
       });
+      navigation.navigate("Language")
     } catch (error: any) {
       switch (error.code) {
       }
@@ -46,9 +50,10 @@ const OTP = () => {
     }
   };
 
-  const navigation = useNavigation();
   return (
     <SafeArea>
+      <StatusBar backgroundColor="#fff" />
+
       <View style={styles.container}>
         <BackButton
           color="#000"
@@ -63,17 +68,20 @@ const OTP = () => {
             marginTop: 30,
           }}
         >
+          <View>
+
           <Text style={styles.infoTxt}>
-            Enter 4-digit code that we just send to your email
-          </Text>
+            Enter 4-digit code that we just send to your email {" "}
           <Text
             style={[
               styles.infoTxt,
-              { color: "#343434", marginTop: 0, fontFamily: "Poppins-Medium" },
+              { color: "#03110A", marginTop: 0 },
             ]}
-          >
+            >
             john123@gmail.com
           </Text>
+          </Text>
+            </View>
           <CodeField
             ref={ref}
             {...props}
@@ -86,11 +94,11 @@ const OTP = () => {
             verticalAlign="bottom"
             textContentType="oneTimeCode"
             textAlign="center"
-            maxLength={2}
+            maxLength={4}
             renderCell={({ index, symbol, isFocused }) => (
               <Text
                 key={index}
-                style={[styles.cell]}
+                style={[styles.cell, isFocused && styles.focusCell]}                
                 onLayout={getCellOnLayoutHandler(index)}
               >
                 {symbol || (isFocused ? <Cursor /> : null)}
@@ -103,6 +111,7 @@ const OTP = () => {
               <Text
                 style={{
                   color: "#75BDE0",
+                  fontFamily:"popins-medium"
                 }}
               >
                 00:54
@@ -129,35 +138,51 @@ const styles = StyleSheet.create({
   Text: {
     color: "#A4A4A4",
     fontSize: 14,
-    fontFamily: "Poppins-Medium",
+    fontFamily: "popins-medium",
 
     textAlign: "center",
     marginVertical: 10,
   },
   infoTxt: {
     color: "#92929D",
-    fontFamily: "Poppins-Regular",
-    fontSize: 14,
+    fontFamily: "popins-regular",
+    fontSize: 16,
     marginTop: 5,
   },
   cell: {
-    width: 70,
-    height: 70,
-    fontSize: 20,
+    width: 68.87,
+    height: 68.87,
+    fontSize: 25,
     borderWidth: 1,
     borderColor: "#fff",
     textAlign: "center",
-    borderRadius: 10, //borderRadius
-    color: "#15206F",
-    backgroundColor: "#fff",
-    elevation: 4,
-    shadowOpacity: 0.1,
+    borderRadius: 19.68, //borderRadius
+    color: "#03110A",
+    backgroundColor: "#F5F5F5",
     textAlignVertical: "center",
-    shadowRadius: 10,
+    borderStartColor:"red",
+    fontFamily: "popins-semibold",
+
   },
 
   codeFieldRoot: {
     width: "100%",
     marginTop: 40,
+   
+  },
+  focusCell: {
+    width: 68.87,
+    height: 68.87,
+    fontSize: 25,
+    borderWidth: 1.23,
+    borderColor: "#75BDE0",
+    textAlign: "center",
+    borderRadius: 19.68, //borderRadius
+    color: "#03110A",
+    backgroundColor: "#F5F5F5",
+    textAlignVertical: "center",
+    fontFamily: "popins-semibold",
+    borderEndWidth:2,
+    
   },
 });

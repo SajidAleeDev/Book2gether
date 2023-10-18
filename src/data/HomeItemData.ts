@@ -287,6 +287,24 @@ export const HomeItemData: ReturnProps[] = [
         Reviewed:
           "This salon is a hidden treasure! Incredible stylists, impeccable service, and stunning results. A must-visit! 💇‍♀️💄🌟",
       },
+      {
+        name: "Emma Jane",
+        date: "3 day ago",
+        Rating: 4,
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Reviewed:
+          "This salon is a hidden treasure! Incredible stylists, impeccable service, and stunning results. A must-visit! 💇‍♀️💄🌟",
+      },
+      {
+        name: "Emma Jane",
+        date: "3 day ago",
+        Rating: 4,
+        Image: "https://imageupload.io/ib/x6zxxP8kQko0pgC_1696785555.png",
+        Reviewed:
+          "This salon is a hidden treasure! Incredible stylists, impeccable service, and stunning results. A must-visit! 💇‍♀️💄🌟",
+      },
+    
+
     ],
   },
 ];

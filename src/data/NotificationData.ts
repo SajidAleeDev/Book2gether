@@ -2,14 +2,14 @@ import { Images } from "../../assets/Images";
 
 export const NotificationData: any = [
   {
-    status: "Appointment Book",
-    Image: Images.twoo,
+    status: "Appointment Booked",
+    Image: Images.booked,
     comments: "your appiontment has been book"
   },
 
   {
     status: "Upcoming appointment",
-    Image: Images.twoo,
+    Image: Images.upcoming,
     comments: "your appiontment is togather saloon"
   },
   {
@@ -23,7 +23,7 @@ export const today: any = [
 
   {
     status: "Your feedback matter",
-    Image: Images.twoo,
+    Image: Images.feedback,
     comments: "Share your appointment thoughts. 🌟 "
   },
 

@@ -55,9 +55,11 @@ const Profile = () => {
         <ProfileItems
           imageSource={Images.languageicon}
           buttonText="Language"
-          toggleSwitch={toggleSwitch2}
-          isEnabled={isEnabled2}
           showText={true}
+          lastbtn={Images.arrow}
+          destination="SelectLanguage"
+
+
         />
         <ProfileItems
           imageSource={Images.locationicon}
@@ -69,7 +71,7 @@ const Profile = () => {
           imageSource={Images.logout}
           buttonText="Log Out"
           lastbtn={Images.arrow}
-          destination="Logout"
+          destination="Login"
         />
       </View>
     </SafeArea>

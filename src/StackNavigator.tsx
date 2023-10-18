@@ -23,10 +23,12 @@ import OTP from "./Screens/OTP";
 import UserProfile from "./components/UserProfile";
 import AppointmentHistory from "./Screens/AppointmentHistory";
 import AppointmentDetails from "./Screens/AppointmentDetails";
+import SelectLanguage from "./Screens/SelectLanguage";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
+  const { user } = useBucket();
 
   function MyTabs() {
     return (
@@ -90,7 +92,7 @@ const StackNavigator = () => {
         />
         <Tab.Screen
           name="Profile"
-          component={Profile}
+          component={user ? Profile:LoginScreen}
           options={{
             tabBarIcon: ({ color, size }) => {
               return <User color={color} size={size} />;
@@ -104,9 +106,12 @@ const StackNavigator = () => {
       </Tab.Navigator>
     );
   }
-  const { user } = useBucket();
 
   const authenticatedRoutes = [
+    {
+      name: "MyTab",
+      component: MyTabs,
+    },
     {
       name: "Language",
       component: LanguageScreen,
@@ -124,13 +129,10 @@ const StackNavigator = () => {
       name: "Service",
       component: ServiceScreen,
     },
-    {
-      name: "MyTab",
-      component: MyTabs,
-    },
+   
     {
       name: "SalonDetails",
-      component: SalonDetails,
+      component: user ? SalonDetails:LoginScreen,
     },
     {
       name: "Treatments",
@@ -160,8 +162,24 @@ const StackNavigator = () => {
     name : "AppointmentDetails",
     component: AppointmentDetails
  },
+ {
+  name: "Login",
+  component: LoginScreen,
+},
+ {
+  name: "Register",
+  component: RegisterScreen,
+ },
+ {
+   name : "OPT",
+   component: OTP
+ },
+ {
+  name : "SelectLanguage",
+  component: SelectLanguage
+}
    
-
+ 
     
     
   ];
@@ -180,7 +198,7 @@ const StackNavigator = () => {
      }
   ];
 
-  const Routes = !user ? unAuthenticatedRoutes : authenticatedRoutes 
+  const Routes =authenticatedRoutes
   return (
     <Stack.Navigator
       initialRouteName={Routes[0].name}

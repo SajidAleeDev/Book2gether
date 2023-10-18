@@ -27,6 +27,7 @@ console.log("====data======>",item)
         EmployeesItemStyles.container,
         {
           margin: adjustSize(4),
+          // height:120,
         },
       ]}
     >

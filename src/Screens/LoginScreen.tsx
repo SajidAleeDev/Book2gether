@@ -7,7 +7,7 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from "react-native";
-import React from "react";
+import React,{useState} from "react";
 import { useBucket } from "../Hooks/Context";
 import { Images } from "../../assets/Images";
 import Input from "../components/Input";
@@ -61,6 +61,7 @@ const LoginScreen = () => {
               title="Login"
               ButtonPress={() => {
                 saveUser({ name: "John Doe" });
+                navigation.navigate("MyTab")
               }}
             />
           </>
@@ -115,7 +116,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
   },
   bottomTxt1: {
-    color: "#92929D",
+    color: "#000000",
 
     fontSize: 15,
   },

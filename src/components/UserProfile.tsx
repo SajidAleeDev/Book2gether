@@ -85,8 +85,13 @@ function UserProfile() {
             style={{
               height: 125,
               width: 125,
+              borderWidth:1,
+              borderRadius:100,
+              borderColor:"#F5F5F5"
             }}
           >
+
+
             <Image
               source={{
                 uri: img,

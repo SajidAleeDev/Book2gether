@@ -3,40 +3,67 @@ import { StyleSheet } from "react-native";
 export const SalonDetailsStyle = StyleSheet.create({
   container: {
     flex: 1,
-    position: "relative",
+    // position: "relative",
   },
   ImageContainer: {
     height: 376,
+    zIndex:-10
   },
 
   Image: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
+    zIndex:-10
   },
   overlay: {
     flex: 1,
-    position: "absolute",
+    // backgroundColor:"red"
+    // position: "absolute",
     width: "100%",
     height: "100%",
     backgroundColor: "rgba(0, 0, 0, 0.29)",
   },
 
   ContentContainerWrapper: {
-    height: 534,
-    overflow: "hidden",
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
-    position: "absolute",
+    // height: 534,
+   
+
+    minHeight:1000,
+
+    // paddingTop:534,
+    // flex:1
+
+  
+  },
+  _body_section:{
+    // position: "absolute",
     bottom: 0,
     right: 0,
     left: 0,
+    // overflow: "hidden",
+    // height: 934,
+    // backgroundColor:"red",
+    flexDirection:"column",
+    // paddingTop:434
+    justifyContent:"flex-end",
+    flex:1,
+    zIndex:10,
+    marginTop:-534,
+    
+
+
+
+
   },
   ContentContainer: {
     flex: 1,
     backgroundColor: "#FCFCFC",
-
     paddingHorizontal: 15,
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+
+
   },
   text: {
     fontSize: 22,

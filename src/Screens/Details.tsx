@@ -40,11 +40,9 @@ const Details = ({ route }: DetailsProps) => {
   }, [data, selectedTreatment]);
 
 
-  console.log("/////////",selectedTreatment)
   // const { setSelectedSalon } = useBucket();
   return (
     <View style={DetailsStyle.container}>
-      <ScrollView>
       <Text style={[DetailsStyle.HeaderText,{marginTop:10}]}>Opening Hours</Text>
       <View style={DetailsStyle.openingContainer}>
         <FlatList
@@ -59,19 +57,14 @@ const Details = ({ route }: DetailsProps) => {
         />
       </View>
       <Text style={[DetailsStyle.HeaderText,{marginTop:20}]}>Employees ({data?.Employees.length}) </Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      <FlatList
-      horizontal
-          data={data?.Employees}
-          renderItem={({ item, index }) => (
-            <EmployeeCard item={item} key={index} />
-          )}
-          scrollEnabled={false}
-          style={{
-            padding: 10,
-          }}
-        />
-      </ScrollView>
+     
+     <View>
+<ScrollView horizontal>
+
+     {data?.Employees.map(( item, index )=> <EmployeeCard item={item} key={index} />)}
+</ScrollView>
+     </View>
+      
 
       <Text style={[DetailsStyle.HeaderText,{marginTop:20}]}>Treatments  ({data?.Treatment.length}) </Text>
       <View style={TreatmentsStyle.TreatmentFilter}>
@@ -121,7 +114,6 @@ const Details = ({ route }: DetailsProps) => {
             }}
           />
         </View>
-      </ScrollView>
     </View>
   );
 };

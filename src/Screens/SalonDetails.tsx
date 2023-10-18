@@ -2,7 +2,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { useNavigation } from "@react-navigation/native";
 import { Dot, MapPin, PhoneCall } from "lucide-react-native";
 import React, { useEffect, useState } from "react";
-import { Image, Text, View ,ScrollView} from "react-native";
+import { Image, Text, View ,ScrollView, ImageBackground} from "react-native";
 import StarRating from "react-native-star-rating-widget";
 import { SalonDetailsStyle } from "../Styles/SalonDetailsStyle";
 import BackButton from "../components/BackButton";
@@ -47,27 +47,34 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
           position: "absolute",
           top: 30,
           left: 10,
-          zIndex: 1,
+          zIndex: 15,
           width: 40,
           height: 40,
           borderRadius: 20,
           alignItems: "center",
           justifyContent: "center",
+        
         }}
       />
       
-      <View style={SalonDetailsStyle.ImageContainer}>
-        <Image
+      <ImageBackground resizeMode="cover"  source={{
+            uri: data?.Image,
+          }} style={[SalonDetailsStyle.ImageContainer]}>
+        {/* <Image
           source={{
             uri: data?.Image,
           }}
           style={SalonDetailsStyle.Image}
-        />
+        /> */}
         <View style={SalonDetailsStyle.overlay} />
-      </View>
+      </ImageBackground>
+
+      <View style={SalonDetailsStyle._body_section}>
+        <ScrollView >
+          <View style={{ height: 376}}></View>
       <View style={SalonDetailsStyle.ContentContainerWrapper}>
         <View style={SalonDetailsStyle.ContentContainer}>
-          <View style={SalonDetailsStyle.TextContainer}>
+          <View style={[SalonDetailsStyle.TextContainer,{paddingTop:10}]}>
             <Text style={SalonDetailsStyle.text}>{data?.name}</Text>
             <View style={SalonDetailsStyle.openContainer}>
               <Dot
@@ -128,13 +135,14 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
           >
             <Tab.Navigator
               initialRouteName="Details"
-              // swipeEnabled={false}
               screenOptions={{
                 swipeEnabled:false,
                 tabBarIndicatorStyle: {
                   backgroundColor: "#75BDE0",
                   height: 3,
                   borderRadius: 30,
+                
+                  // flex:1
                 
                 },
                 tabBarLabelStyle: {
@@ -152,6 +160,7 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
                   shadowRadius: 3,
                   shadowOpacity: 0.1,
                 },
+               
               }}
             >
               <Tab.Screen
@@ -177,6 +186,8 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
             />
           </View>
         </View>
+      </View>
+      </ScrollView>
       </View>
     </View>
   );
