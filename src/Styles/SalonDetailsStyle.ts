@@ -49,9 +49,9 @@ export const SalonDetailsStyle = StyleSheet.create({
   ContentContainer: {
     flex: 1,
     backgroundColor: "#FCFCFC",
-
     paddingHorizontal: 15,
     borderTopLeftRadius: 35,
+
     borderTopRightRadius: 35,
   },
   text: {

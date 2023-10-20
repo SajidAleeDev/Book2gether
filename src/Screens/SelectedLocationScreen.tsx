@@ -15,25 +15,25 @@ const SelectedLocationScreen = () => {
   const navigation: NavigationProps = useNavigation();
   return (
     <SafeArea>
-      <BackButton
-        color="#000"
-        customStyles={{
-          view: {
-            marginTop: 20,
-          },
-        }}
-        title="Profile"
-        onPress={() => navigation.goBack()}
-      />
       <View style={LanguageStyle.LanguageHeader}>
+        <BackButton
+          color="#000"
+          customStyles={{
+            view: {
+              marginTop: 20,
+            },
+          }}
+          title="Profile"
+          onPress={() => navigation.goBack()}
+        />
         <Image ImageSource={Images.Location} />
         <ImageDescription
           ImageTitle="Location"
           ImageDescription="Allow maps to access your location while you use the app?"
         />
       </View>
-      <View style={LocationStyle.container} />
-      <Button title="Allow" />
+
+      <Button title="Allow" marginBottom={20} />
     </SafeArea>
   );
 };

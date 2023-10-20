@@ -95,7 +95,7 @@ const StackNavigator = () => {
         />
         <Tab.Screen
           name="Profile"
-          component={user ? Profile : LoginScreen}
+          component={Profile}
           options={{
             tabBarIcon: ({ color, size }) => {
               return <User color={color} size={size} />;
@@ -112,23 +112,6 @@ const StackNavigator = () => {
 
   const authenticatedRoutes = [
     {
-      name: "MyTab",
-      component: MyTabs,
-    },
-    {
-      name: "Language",
-      component: LanguageScreen,
-    },
-    {
-      name: "SelectedLocation",
-      component: SelectedLocationScreen,
-    },
-
-    {
-      name: "Notification",
-      component: NotificationScreen,
-    },
-    {
       name: "Location",
       component: LocationScreen,
     },
@@ -139,7 +122,7 @@ const StackNavigator = () => {
 
     {
       name: "SalonDetails",
-      component: user ? SalonDetails : LoginScreen,
+      component: SalonDetails,
     },
     {
       name: "Treatments",
@@ -185,6 +168,23 @@ const StackNavigator = () => {
       name: "SelectLanguage",
       component: SelectLanguage,
     },
+    {
+      name: "MyTab",
+      component: MyTabs,
+    },
+    {
+      name: "Language",
+      component: LanguageScreen,
+    },
+    {
+      name: "SelectedLocation",
+      component: SelectedLocationScreen,
+    },
+
+    {
+      name: "Notification",
+      component: NotificationScreen,
+    },
   ];
   const unAuthenticatedRoutes = [
     {
@@ -201,7 +201,7 @@ const StackNavigator = () => {
     },
   ];
 
-  const Routes = authenticatedRoutes;
+  const Routes = user ? unAuthenticatedRoutes : authenticatedRoutes;
   return (
     <Stack.Navigator
       initialRouteName={Routes[0].name}
