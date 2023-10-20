@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BellIcon, CompassIcon, User } from "lucide-react-native";
+import { Platform } from "react-native";
 import React from "react";
 import HomeIcon from "../assets/Svg/HomeIcon";
 import EmployeeScreen from "./Screens/EmployeeScreen";
@@ -24,11 +25,13 @@ import UserProfile from "./components/UserProfile";
 import AppointmentHistory from "./Screens/AppointmentHistory";
 import AppointmentDetails from "./Screens/AppointmentDetails";
 import SelectLanguage from "./Screens/SelectLanguage";
+import SelectedLocationScreen from "./Screens/SelectedLocationScreen";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
   const { user } = useBucket();
+  const Ios = Platform.OS === "ios";
 
   function MyTabs() {
     return (
@@ -43,8 +46,8 @@ const StackNavigator = () => {
             backgroundColor: "#FFFFFF",
             borderTopWidth: 0,
             elevation: 20,
-            height: 60,
-            paddingBottom: 10,
+            height: Ios ? 66 : 60,
+            paddingBottom: Ios ? 20 : 10,
             borderRadius: 30,
             margin: 1,
           },
@@ -92,7 +95,7 @@ const StackNavigator = () => {
         />
         <Tab.Screen
           name="Profile"
-          component={user ? Profile:LoginScreen}
+          component={user ? Profile : LoginScreen}
           options={{
             tabBarIcon: ({ color, size }) => {
               return <User color={color} size={size} />;
@@ -116,6 +119,10 @@ const StackNavigator = () => {
       name: "Language",
       component: LanguageScreen,
     },
+    {
+      name: "SelectedLocation",
+      component: SelectedLocationScreen,
+    },
 
     {
       name: "Notification",
@@ -129,10 +136,10 @@ const StackNavigator = () => {
       name: "Service",
       component: ServiceScreen,
     },
-   
+
     {
       name: "SalonDetails",
-      component: user ? SalonDetails:LoginScreen,
+      component: user ? SalonDetails : LoginScreen,
     },
     {
       name: "Treatments",
@@ -151,54 +158,50 @@ const StackNavigator = () => {
       component: OverviewScreen,
     },
     {
-       name : "UserProfile",
-        component: UserProfile
+      name: "UserProfile",
+      component: UserProfile,
     },
     {
-      name : "AppointmentHistory",
-      component: AppointmentHistory
-   },
-   {
-    name : "AppointmentDetails",
-    component: AppointmentDetails
- },
- {
-  name: "Login",
-  component: LoginScreen,
-},
- {
-  name: "Register",
-  component: RegisterScreen,
- },
- {
-   name : "OPT",
-   component: OTP
- },
- {
-  name : "SelectLanguage",
-  component: SelectLanguage
-}
-   
- 
-    
-    
+      name: "AppointmentHistory",
+      component: AppointmentHistory,
+    },
+    {
+      name: "AppointmentDetails",
+      component: AppointmentDetails,
+    },
+    {
+      name: "Login",
+      component: LoginScreen,
+    },
+    {
+      name: "Register",
+      component: RegisterScreen,
+    },
+    {
+      name: "OPT",
+      component: OTP,
+    },
+    {
+      name: "SelectLanguage",
+      component: SelectLanguage,
+    },
   ];
   const unAuthenticatedRoutes = [
     {
       name: "Login",
       component: LoginScreen,
     },
-     {
+    {
       name: "Register",
       component: RegisterScreen,
-     },
-     {
-       name : "OPT",
-       component: OTP
-     }
+    },
+    {
+      name: "OPT",
+      component: OTP,
+    },
   ];
 
-  const Routes =authenticatedRoutes
+  const Routes = authenticatedRoutes;
   return (
     <Stack.Navigator
       initialRouteName={Routes[0].name}
@@ -223,4 +226,3 @@ const StackNavigator = () => {
 };
 
 export default StackNavigator;
-

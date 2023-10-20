@@ -3,11 +3,10 @@ import { StyleSheet } from "react-native";
 export const NotificationStyle = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   headingsContainer: {
-    marginTop: 20
+    marginTop: 20,
   },
   headingText: {
     fontSize: 20,
@@ -18,20 +17,18 @@ export const NotificationStyle = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     fontFamily: "popins-bold",
-    marginVertical: 10
-
+    marginVertical: 10,
   },
   notificationText: {
     fontSize: 14,
     fontWeight: "500",
-    fontFamily: "popins-semibold"
+    fontFamily: "popins-semibold",
   },
   opinion: {
     fontSize: 12,
     color: "#A4A4A4",
     fontWeight: "400",
     fontFamily: "popins-medium",
-
   },
   notificationIcon: {
     backgroundColor: "#F5F5F5",
@@ -40,7 +37,7 @@ export const NotificationStyle = StyleSheet.create({
     width: 52,
     borderRadius: 50,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   NotificationContainer: {
     backgroundColor: "#fff",
@@ -59,12 +56,11 @@ export const NotificationStyle = StyleSheet.create({
     elevation: 4,
     flexDirection: "row",
     padding: 10,
-
   },
   NotificationDetail: {
     paddingHorizontal: 10,
     marginLeft: 0,
 
     flex: 1,
-  }
+  },
 });

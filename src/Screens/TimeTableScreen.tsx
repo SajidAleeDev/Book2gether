@@ -70,7 +70,7 @@ const TimeTableScreen = () => {
             }}
             selectedDayColor="#75BDE0"
             selectedDayTextColor="#fff"
-            enableDateChange={false}
+            // enableDateChange={false}
             selectedDayStyle={{
               height: 40,
               width: 40,

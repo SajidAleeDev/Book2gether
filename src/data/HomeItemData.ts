@@ -303,8 +303,6 @@ export const HomeItemData: ReturnProps[] = [
         Reviewed:
           "This salon is a hidden treasure! Incredible stylists, impeccable service, and stunning results. A must-visit! 💇‍♀️💄🌟",
       },
-    
-
     ],
   },
 ];

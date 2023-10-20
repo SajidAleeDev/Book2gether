@@ -7,18 +7,18 @@ export const SalonDetailsStyle = StyleSheet.create({
   },
   ImageContainer: {
     height: 376,
-    zIndex:-10
+    zIndex: -10,
   },
 
   Image: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    zIndex:-10
+    zIndex: -10,
   },
   overlay: {
     flex: 1,
-    // backgroundColor:"red"
+    // backgroundColor: "red",
     // position: "absolute",
     width: "100%",
     height: "100%",
@@ -27,16 +27,11 @@ export const SalonDetailsStyle = StyleSheet.create({
 
   ContentContainerWrapper: {
     // height: 534,
-   
-
-    minHeight:1000,
-
-    // paddingTop:534,
+    minHeight: 1000,
+    // paddingTop: 534,
     // flex:1
-
-  
   },
-  _body_section:{
+  _body_section: {
     // position: "absolute",
     bottom: 0,
     right: 0,
@@ -44,26 +39,20 @@ export const SalonDetailsStyle = StyleSheet.create({
     // overflow: "hidden",
     // height: 934,
     // backgroundColor:"red",
-    flexDirection:"column",
+    flexDirection: "column",
     // paddingTop:434
-    justifyContent:"flex-end",
-    flex:1,
-    zIndex:10,
-    marginTop:-534,
-    
-
-
-
-
+    justifyContent: "flex-end",
+    flex: 1,
+    zIndex: 300,
+    marginTop: -534,
   },
   ContentContainer: {
     flex: 1,
     backgroundColor: "#FCFCFC",
+
     paddingHorizontal: 15,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
-
-
   },
   text: {
     fontSize: 22,

@@ -143,6 +143,7 @@ const Home = () => {
         <View
           style={{
             flex: 1,
+            marginBottom: 10,
           }}
         >
           <FlatList

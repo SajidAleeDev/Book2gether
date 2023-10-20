@@ -58,14 +58,12 @@ const Profile = () => {
           showText={true}
           lastbtn={Images.arrow}
           destination="SelectLanguage"
-
-
         />
         <ProfileItems
           imageSource={Images.locationicon}
           buttonText="Location"
           lastbtn={Images.arrow}
-          destination="SelectLocation"
+          destination="SelectedLocation"
         />
         <ProfileItems
           imageSource={Images.logout}

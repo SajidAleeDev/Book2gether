@@ -7,7 +7,7 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from "react-native";
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useBucket } from "../Hooks/Context";
 import { Images } from "../../assets/Images";
 import Input from "../components/Input";
@@ -15,6 +15,7 @@ import { LockIcon, MailIcon } from "lucide-react-native";
 import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { NavigationProps } from "../types/type";
+import SafeArea from "../components/SafeArea";
 
 const LoginScreen = () => {
   const { saveUser } = useBucket();
@@ -24,7 +25,7 @@ const LoginScreen = () => {
   const [isLoading, setIsLoading] = React.useState(false);
 
   return (
-    <View style={styles.container}>
+    <SafeArea>
       <View style={styles.View}>
         <Image source={Images.Logo} style={styles.Image} />
       </View>
@@ -61,7 +62,7 @@ const LoginScreen = () => {
               title="Login"
               ButtonPress={() => {
                 saveUser({ name: "John Doe" });
-                navigation.navigate("MyTab")
+                navigation.navigate("MyTab");
               }}
             />
           </>
@@ -77,7 +78,7 @@ const LoginScreen = () => {
           <Text style={styles.bottomTxt2}>Sign Up</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeArea>
   );
 };
 
@@ -86,7 +87,7 @@ export default LoginScreen;
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "red",
   },
 
   ButtonView: {

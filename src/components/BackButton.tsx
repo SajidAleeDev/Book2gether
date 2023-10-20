@@ -6,6 +6,7 @@ import { BackButtonProps } from "../types/type";
 const BackButton = ({
   color,
   title,
+  customStyles,
   ...props
 }: BackButtonProps & React.ComponentProps<typeof TouchableOpacity>) => {
   return (
@@ -15,6 +16,8 @@ const BackButton = ({
         alignItems: "center",
         flexDirection: "row",
         marginLeft: 4,
+
+        ...customStyles?.view,
       }}
     >
       <TouchableOpacity {...props}>
@@ -27,7 +30,8 @@ const BackButton = ({
             color: "#000",
             fontSize: 18,
             fontWeight: "600",
-            marginTop:5
+            marginTop: 5,
+            ...customStyles?.text,
           }}
         >
           {title}

@@ -1,31 +1,24 @@
 import React from "react";
-import {
-  FlatList,
-  ScrollView,
-  StatusBar,
-  Text,
-  View
-} from "react-native";
+import { FlatList, ScrollView, StatusBar, Text, View } from "react-native";
 import { NotificationStyle } from "../Styles/Notification";
 import NotificaionToday from "../components/NotificaionToday";
 import NotificationList from "../components/NotificationList";
 import SafeArea from "../components/SafeArea";
 import { NotificationData, today } from "../data/NotificationData";
+import BackButton from "../components/BackButton";
 const Notification = () => {
   return (
-    <SafeArea gray>
-      <StatusBar backgroundColor="#ffff" />
+    <SafeArea>
       <ScrollView style={NotificationStyle.container}>
-        <View style={NotificationStyle.headingsContainer}>
+        {/* <View style={NotificationStyle.headingsContainer}>
           <Text style={NotificationStyle.headingText}>Notifications</Text>
-        </View>
+        </View> */}
+        <BackButton title="Notifications" color="#000" />
         <View>
           <Text style={NotificationStyle.daytext}>Today</Text>
         </View>
         <FlatList
-        key={
-          Math.random().toString()
-        }
+          key={Math.random().toString()}
           data={today}
           renderItem={({ item, index }) => (
             <NotificaionToday key={index} item={item} />

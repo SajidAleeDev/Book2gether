@@ -1,4 +1,4 @@
-import { Image } from "react-native";
+import { Image, StyleSheet, TextStyle, ViewStyle } from "react-native";
 
 export interface ReturnProps {
   id: number;
@@ -9,7 +9,7 @@ export interface ReturnProps {
   city: string;
   number: string;
   Rating: number;
-  charges?:string,
+  charges?: string;
   Employees: {
     name: string;
     Image: string;
@@ -41,11 +41,15 @@ export interface ReturnProps {
 export interface BackButtonProps {
   color: string;
   title?: string;
+  customStyles?: {
+    view?: ViewStyle;
+    text?: TextStyle;
+  };
 }
 
 export interface NavigationProps {
   navigate: (arg: string) => void;
-  goBack?: any
+  goBack?: any;
 }
 
 export interface children {
@@ -67,15 +71,14 @@ export interface ButtonProps {
   ButtonPress?: () => void;
   SkipButtonPress?: () => void;
   modalButton?: boolean;
-  fontSize?:number
+  fontSize?: number;
 }
 
 export interface InputProps {
   icon?: React.ReactNode;
   width?: number;
   height?: number;
-  marginBottom?:number
-  
+  marginBottom?: number;
 }
 
 export interface HomeItemNavigationProps {
@@ -159,7 +162,7 @@ export interface TreatmentProps {
     name: string;
   };
 
-  SelectedTreatment: boolean;
+  SelectedTreatment?: boolean;
 }
 
 export interface TreatmentDetailsProps {
@@ -205,8 +208,6 @@ export interface BucketContext {
   user: null;
   setUser?: () => void;
   saveUser: (user: null) => void;
-  
-
 }
 
 export interface BucketProps {
@@ -243,18 +244,14 @@ export interface OverviewScreenDataPoops {
 export interface ModelProps {
   modalVisible: boolean;
   setModalVisible: (arg: boolean) => void;
-  
 
   image: ImageProps["ImageSource"];
   Title: string;
   Description: string;
   ButtonTitle: string;
   HandleClicked: () => void;
-  
-  
 }
 export interface UserProfileProps {
-
   updateProfileImage: (imageUri: string) => void;
 }
 export interface ImagePickerProps {

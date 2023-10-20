@@ -2,7 +2,14 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { useNavigation } from "@react-navigation/native";
 import { Dot, MapPin, PhoneCall } from "lucide-react-native";
 import React, { useEffect, useState } from "react";
-import { Image, Text, View ,ScrollView, ImageBackground} from "react-native";
+import {
+  Image,
+  Text,
+  View,
+  ScrollView,
+  ImageBackground,
+  Dimensions,
+} from "react-native";
 import StarRating from "react-native-star-rating-widget";
 import { SalonDetailsStyle } from "../Styles/SalonDetailsStyle";
 import BackButton from "../components/BackButton";
@@ -19,7 +26,7 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
 
   useEffect(() => {
     if (id) {
-      fetchDataById(id)
+      fetchDataById(id);
     }
   }, [id]);
 
@@ -53,13 +60,16 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
           borderRadius: 20,
           alignItems: "center",
           justifyContent: "center",
-        
         }}
       />
-      
-      <ImageBackground resizeMode="cover"  source={{
-            uri: data?.Image,
-          }} style={[SalonDetailsStyle.ImageContainer]}>
+
+      <ImageBackground
+        resizeMode="cover"
+        source={{
+          uri: data?.Image,
+        }}
+        style={[SalonDetailsStyle.ImageContainer]}
+      >
         {/* <Image
           source={{
             uri: data?.Image,
@@ -70,124 +80,140 @@ const SalonDetails = ({ route }: SalonDetailsProps) => {
       </ImageBackground>
 
       <View style={SalonDetailsStyle._body_section}>
-        <ScrollView >
-          <View style={{ height: 376}}></View>
-      <View style={SalonDetailsStyle.ContentContainerWrapper}>
-        <View style={SalonDetailsStyle.ContentContainer}>
-          <View style={[SalonDetailsStyle.TextContainer,{paddingTop:10}]}>
-            <Text style={SalonDetailsStyle.text}>{data?.name}</Text>
-            <View style={SalonDetailsStyle.openContainer}>
-              <Dot
-                size={60}
-                style={{
-                  right: -20,
-                  position: "relative",
-                }}
-                color={data?.open ? "#00BA88" : "#FF647C"}
-              />
-              <Text style={SalonDetailsStyle.openContainerText}>
-                {data?.open ? "Open" : "Close"}
-              </Text>
-            </View>
-          </View>
-          <View style={SalonDetailsStyle.AboutContainer}>
-            <Text style={SalonDetailsStyle.AboutText}>
-              <MapPin
-                size={20}
-                color="#000"
-                style={{
-                  marginRight: 5,
-                }}
-              />{" "}
-              {data?.Location}
-            </Text>
-            <Text style={SalonDetailsStyle.AboutText}>
-              <PhoneCall
-                size={20}
-                color="#000"
-                style={{
-                  marginRight: 5,
-                }}
-              />{" "}
-              {data?.number}
-            </Text>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <StarRating
-                rating={data?.Rating}
-                onChange={(rating) => console.table(rating)} // for ignoring
-                starSize={25}
-                emptyColor="#DFDFDF"
-                enableHalfStar
-                maxStars={5}
-              />
-              <Text style={SalonDetailsStyle.AboutText}>{data?.Rating}</Text>
-            </View>
-          </View>
+        <ScrollView
+          style={{
+            flex: 1,
+          }}
+          scrollEnabled={true}
+          overScrollMode="always"
+          scrollToOverflowEnabled={true}
+          showsVerticalScrollIndicator={false}
+          indicatorStyle="black"
+          automaticallyAdjustsScrollIndicatorInsets={true}
+        >
           <View
             style={{
-              flex: 1,
+              height: Dimensions.get("window").height / 2,
             }}
-          >
-            <Tab.Navigator
-              initialRouteName="Details"
-              screenOptions={{
-                swipeEnabled:false,
-                tabBarIndicatorStyle: {
-                  backgroundColor: "#75BDE0",
-                  height: 3,
-                  borderRadius: 30,
-                
-                  // flex:1
-                
-                },
-                tabBarLabelStyle: {
-                  fontFamily: "popins-medium",
-                  fontSize: 13,
-                },
-                tabBarStyle: {
-                  backgroundColor: "#fff",
-                  elevation: 1,
-                  shadowColor: "#000",
-                  shadowOffset: {
-                    width: 2,
-                    height: 2,
-                  },
-                  shadowRadius: 3,
-                  shadowOpacity: 0.1,
-                },
-               
-              }}
-            >
-              <Tab.Screen
-                name="Details"
-                component={Details}
-                initialParams={{
-                  data: data,
+          />
+          <View style={SalonDetailsStyle.ContentContainerWrapper}>
+            <View style={SalonDetailsStyle.ContentContainer}>
+              <View
+                style={[SalonDetailsStyle.TextContainer, { paddingTop: 10 }]}
+              >
+                <Text style={SalonDetailsStyle.text}>{data?.name}</Text>
+                <View style={SalonDetailsStyle.openContainer}>
+                  <Dot
+                    size={60}
+                    style={{
+                      right: -20,
+                      position: "relative",
+                    }}
+                    color={data?.open ? "#00BA88" : "#FF647C"}
+                  />
+                  <Text style={SalonDetailsStyle.openContainerText}>
+                    {data?.open ? "Open" : "Close"}
+                  </Text>
+                </View>
+              </View>
+              <View style={SalonDetailsStyle.AboutContainer}>
+                <Text style={SalonDetailsStyle.AboutText}>
+                  <MapPin
+                    size={20}
+                    color="#000"
+                    style={{
+                      marginRight: 5,
+                    }}
+                  />{" "}
+                  {data?.Location}
+                </Text>
+                <Text style={SalonDetailsStyle.AboutText}>
+                  <PhoneCall
+                    size={20}
+                    color="#000"
+                    style={{
+                      marginRight: 5,
+                    }}
+                  />{" "}
+                  {data?.number}
+                </Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <StarRating
+                    rating={data?.Rating}
+                    onChange={(rating) => console.table(rating)} // for ignoring
+                    starSize={25}
+                    emptyColor="#DFDFDF"
+                    enableHalfStar
+                    maxStars={5}
+                  />
+                  <Text style={SalonDetailsStyle.AboutText}>
+                    {data?.Rating}
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={{
+                  flex: 1,
+                  // height: Dimensions.get("window").height / 2,
+                  // zIndex: 10,
                 }}
-              />
-              <Tab.Screen
-                name="Review"
-                component={Reviews}
-                initialParams={{
-                  data: data,
-                }}
-              />
-            </Tab.Navigator>
-            <Button
-              title="Book"
-              ButtonPress={() => {
-                Navigate();
-              }}
-            />
+              >
+                <Tab.Navigator
+                  initialRouteName="Details"
+                  screenOptions={{
+                    // swipeEnabled: false,
+                    tabBarIndicatorStyle: {
+                      backgroundColor: "#75BDE0",
+
+                      height: 3,
+                      borderRadius: 30,
+
+                      // flex: 1,
+                    },
+                    tabBarLabelStyle: {
+                      fontFamily: "popins-medium",
+                      fontSize: 13,
+                    },
+                    tabBarStyle: {
+                      backgroundColor: "#fff",
+                      elevation: 1,
+                      shadowColor: "#000",
+                      shadowOffset: {
+                        width: 2,
+                        height: 2,
+                      },
+                      shadowRadius: 3,
+                      shadowOpacity: 0.1,
+                    },
+                  }}
+                  style={{
+                    backgroundColor: "red",
+                  }}
+                >
+                  <Tab.Screen
+                    name="Details"
+                    component={Details}
+                    initialParams={{
+                      data: data,
+                    }}
+                  />
+                  <Tab.Screen
+                    name="Review"
+                    component={Reviews}
+                    initialParams={{
+                      data: data,
+                    }}
+                  />
+                </Tab.Navigator>
+              </View>
+            </View>
           </View>
-        </View>
-      </View>
-      </ScrollView>
+        </ScrollView>
       </View>
     </View>
   );
