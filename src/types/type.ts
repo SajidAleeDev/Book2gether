@@ -72,9 +72,6 @@ export interface ButtonProps {
   SkipButtonPress?: () => void;
   modalButton?: boolean;
   fontSize?: number;
-
-  marginBottom?: number;
-  height?: number;
 }
 
 export interface InputProps {

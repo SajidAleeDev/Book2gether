@@ -9,34 +9,26 @@ const Button = ({
   ButtonPress,
   SkipButtonPress,
   modalButton,
-  height,
-  marginBottom,
-  fontSize,
+  fontSize
 }: ButtonProps) => {
   return (
     <View
       style={[
         ButtonStyle.container,
         {
-          height: skip ? 88 : height ? height : 60,
-          marginBottom: skip ? 10 : marginBottom ? marginBottom : 0,
+          height: skip ? 88 : 60,
+          marginBottom : skip ? 10 : 14
+          
         },
       ]}
     >
       <TouchableOpacity
-        style={[
-          ButtonStyle.ButtonBackground,
-          {
-            width: modalButton ? 290 : 350,
-          },
-        ]}
+        style={[ButtonStyle.ButtonBackground , {
+          width: modalButton ? 290 : 350,
+        }]}
         onPress={ButtonPress}
       >
-        <Text
-          style={[ButtonStyle.Text, { fontSize: fontSize ? fontSize : 16 }]}
-        >
-          {title}
-        </Text>
+        <Text style={[ButtonStyle.Text,{fontSize:fontSize?fontSize:16}]}>{title}</Text>
       </TouchableOpacity>
       {skip && (
         <TouchableOpacity

@@ -13,7 +13,7 @@ const Profile = () => {
   const toggleSwitch2 = () => setIsEnabled2((previousState) => !previousState);
   return (
     <SafeArea gray>
-      {/* <StatusBar backgroundColor="#75BDE0" /> */}
+      <StatusBar backgroundColor="#75BDE0" />
       <View style={ProfileStyle.profileContainer}>
         <View style={ProfileStyle.profileheader}>
           <Text style={ProfileStyle.headerHeading}>Profile</Text>

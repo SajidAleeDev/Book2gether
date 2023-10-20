@@ -75,7 +75,7 @@ const TimeTableScreen = () => {
               height: 40,
               width: 40,
               borderRadius: 20,
-              backgroundColor: "#75BDE0",
+              backgroundColor: "#A7A7A7",
 
               padding: 10,
             }}

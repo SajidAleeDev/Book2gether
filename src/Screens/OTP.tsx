@@ -5,7 +5,7 @@ import {
   Text,
   TouchableOpacity,
   View,
-  StatusBar,
+  StatusBar
 } from "react-native";
 import SafeArea from "../components/SafeArea";
 import BackButton from "../components/BackButton";
@@ -41,7 +41,7 @@ const OTP = () => {
       saveUser({
         name: "any",
       });
-      navigation.navigate("Language");
+      navigation.navigate("Language")
     } catch (error: any) {
       switch (error.code) {
       }
@@ -69,15 +69,19 @@ const OTP = () => {
           }}
         >
           <View>
-            <Text style={styles.infoTxt}>
-              Enter 4-digit code that we just send to your email{" "}
-              <Text
-                style={[styles.infoTxt, { color: "#03110A", marginTop: 0 }]}
-              >
-                john123@gmail.com
-              </Text>
-            </Text>
-          </View>
+
+          <Text style={styles.infoTxt}>
+            Enter 4-digit code that we just send to your email {" "}
+          <Text
+            style={[
+              styles.infoTxt,
+              { color: "#03110A", marginTop: 0 },
+            ]}
+            >
+            john123@gmail.com
+          </Text>
+          </Text>
+            </View>
           <CodeField
             ref={ref}
             {...props}
@@ -88,15 +92,13 @@ const OTP = () => {
             keyboardType="number-pad"
             numberOfLines={1}
             verticalAlign="bottom"
-            textAlignVertical="center"
             textContentType="oneTimeCode"
             textAlign="center"
-            // disableFullscreenUI={false}
             maxLength={4}
             renderCell={({ index, symbol, isFocused }) => (
               <Text
                 key={index}
-                style={[styles.cell, isFocused && styles.focusCell]}
+                style={[styles.cell, isFocused && styles.focusCell]}                
                 onLayout={getCellOnLayoutHandler(index)}
               >
                 {symbol || (isFocused ? <Cursor /> : null)}
@@ -109,7 +111,7 @@ const OTP = () => {
               <Text
                 style={{
                   color: "#75BDE0",
-                  fontFamily: "popins-medium",
+                  fontFamily:"popins-medium"
                 }}
               >
                 00:54
@@ -151,21 +153,22 @@ const styles = StyleSheet.create({
     width: 68.87,
     height: 68.87,
     fontSize: 25,
-
+    borderWidth: 1,
+    borderColor: "#fff",
     textAlign: "center",
-    verticalAlign: "center",
-
     borderRadius: 19.68, //borderRadius
     color: "#03110A",
     backgroundColor: "#F5F5F5",
     textAlignVertical: "center",
+    borderStartColor:"red",
     fontFamily: "popins-semibold",
-    borderEndWidth: 2,
+
   },
 
   codeFieldRoot: {
     width: "100%",
     marginTop: 40,
+   
   },
   focusCell: {
     width: 68.87,
@@ -179,6 +182,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F5F5",
     textAlignVertical: "center",
     fontFamily: "popins-semibold",
-    borderEndWidth: 2,
+    borderEndWidth:2,
+    
   },
 });

@@ -10,9 +10,14 @@ import { DetailsStyle } from "./Details";
 const Reviews = ({ route }: DetailsProps) => {
   const data = route?.params.data;
   const navigation = useNavigation<TreatmentsNavigationProps>();
-  // const { setSelectedSalon } = useBucket();
+  const { setSelectedSalon } = useBucket();
 
   function Navigate() {
+    setSelectedSalon({
+      SalonName: data?.name,
+      SalonAddress: data?.Location,
+      SalonNumber: data?.number,
+    });
     navigation.navigate("Treatments", {
       data: data,
     });
@@ -23,17 +28,8 @@ const Reviews = ({ route }: DetailsProps) => {
       <FlatList
         data={data?.Review}
         renderItem={({ item, index }) => <ReviewItem item={item} key={index} />}
-        nestedScrollEnabled
         showsVerticalScrollIndicator={false}
-      />
-
-      <Button
-        title="Book"
-        ButtonPress={() => {
-          navigation.navigate("Treatments", {
-            data: data,
-          });
-        }}
+        scrollEnabled
       />
     </View>
   );

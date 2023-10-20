@@ -44,79 +44,15 @@ const Details = ({ route }: DetailsProps) => {
 
   // const { setSelectedSalon } = useBucket();
   return (
-    <ScrollView
-      nestedScrollEnabled
-      showsVerticalScrollIndicator={false}
-      style={DetailsStyle.container}
-    >
+    <View style={DetailsStyle.container}>
       <Text style={[DetailsStyle.HeaderText, { marginTop: 10 }]}>
         Opening Hours
       </Text>
       <View style={DetailsStyle.openingContainer}>
-        <FlatList
-          data={data?.OpenTiming}
-          renderItem={({ item, index }) => (
+        {data?.OpenTiming?.length > 0 &&
+          data?.OpenTiming.map((item, index) => (
             <OpenTimeText item={item} key={index} />
-          )}
-          scrollEnabled={false}
-          showsVerticalScrollIndicator={false}
-          style={{
-            padding: 10,
-            paddingBottom: 0,
-          }}
-        />
-      </View>
-      <Text style={[DetailsStyle.HeaderText, { marginTop: 20 }]}>
-        Employees ({data?.Employees.length}){" "}
-      </Text>
-
-      <FlatList
-        horizontal
-        data={data?.Employees}
-        renderItem={({ item, index }) => (
-          <EmployeeCard item={item} key={index} />
-        )}
-        showsHorizontalScrollIndicator={false}
-        style={{
-          padding: 10,
-        }}
-      />
-      <Text style={[DetailsStyle.HeaderText, { marginTop: 20 }]}>
-        Treatments ({data?.Treatment.length}){" "}
-      </Text>
-      <View style={TreatmentsStyle.TreatmentFilter}>
-        <FlatList
-          data={data?.Treatment}
-          horizontal
-          renderItem={({ item, index }: any) => (
-            <TreatmentButton
-              item={item}
-              SelectedTreatment={selectedTreatment === index}
-              key={index + 1}
-              // onPress={() => {
-              //   setSelectedTreatment(index);
-              // }}
-            />
-          )}
-        />
-      </View>
-      <View
-        style={{
-          paddingVertical: 10,
-          flex: 1,
-        }}
-      >
-        <FlatList
-          horizontal
-          data={data?.Treatment[selectedTreatment].Treatments}
-          renderItem={({ item, index }) => (
-            <TreatmentDetails key={index + 1} item={item} />
-          )}
-          showsHorizontalScrollIndicator={false}
-          style={{
-            flex: 1,
-          }}
-        />
+          ))}
       </View>
       <Button
         title="Book"
@@ -125,9 +61,8 @@ const Details = ({ route }: DetailsProps) => {
             data: data,
           });
         }}
-        // marginBottom={-11}
       />
-    </ScrollView>
+    </View>
   );
 };
 
@@ -136,8 +71,9 @@ export default Details;
 export const DetailsStyle = StyleSheet.create({
   container: {
     flex: 1,
-    // paddingVertical: 10,
+    paddingVertical: 10,
     backgroundColor: "#FCFCFC",
+    // backgroundColor: "red",
   },
   HeaderText: {
     color: "#212121",
@@ -148,7 +84,7 @@ export const DetailsStyle = StyleSheet.create({
   },
   openingContainer: {
     marginVertical: 8,
-    paddingBottom: 13,
+    paddingBottom: "20%",
     borderRadius: 10,
     backgroundColor: "#fff",
     elevation: 0.5,
