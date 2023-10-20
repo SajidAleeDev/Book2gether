@@ -15,7 +15,7 @@ const Image = ({ ImageSource, lang }: ImageProps & { lang?: boolean }) => {
           ImageStyle.frontImage,
           {
             width: lang ? adjustSize(100) : adjustSize(80),
-            height: lang ? adjustSize(100) : adjustSize(80),
+            height: lang ? adjustSize(100) : adjustSize(100),
           },
         ]}
       />

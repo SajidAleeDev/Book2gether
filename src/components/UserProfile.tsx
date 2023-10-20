@@ -6,6 +6,7 @@ import {
   StatusBar,
   ScrollView,
   TouchableOpacity,
+  KeyboardAvoidingView,
 } from "react-native";
 import SafeArea from "./SafeArea";
 
@@ -13,7 +14,7 @@ import * as ImagePicker from "expo-image-picker";
 
 import { ProfileStyle } from "../Styles/profile";
 import { Images } from "../../assets/Images";
-import { styles } from "./BackButton";
+import BackButton, { styles } from "./BackButton";
 import ImagePickerExample from "./Imagepicker";
 import ProfileInput from "./ProfileInput";
 import { userData } from "../data/Profiledata";
@@ -67,10 +68,19 @@ function UserProfile() {
   };
   return (
     <SafeArea>
+      <View
+        style={{
+          padding: 10,
+        }}
+      >
+        <BackButton
+          onPress={() => navigation.goBack()}
+          color="#000"
+          title="Profile"
+        />
+      </View>
       <ScrollView style={ProfileStyle.userProfileContainer}>
-        <StatusBar backgroundColor="#fff" />
-
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={goToProfile}
           style={ProfileStyle.Profileback}
         >
@@ -78,20 +88,18 @@ function UserProfile() {
             <Image source={Images.arrowleft} style={ProfileStyle.backarrow} />
           </View>
           <Text style={ProfileStyle.headerHeading}>Profile</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <View style={ProfileStyle.profieBox}>
           <View
             style={{
               height: 125,
               width: 125,
-              borderWidth:1,
-              borderRadius:100,
-              borderColor:"#F5F5F5"
+              borderWidth: 1,
+              borderRadius: 100,
+              borderColor: "#F5F5F5",
             }}
           >
-
-
             <Image
               source={{
                 uri: img,
@@ -122,35 +130,37 @@ function UserProfile() {
             </TouchableOpacity>
           </View>
         </View>
-        <ProfileInput
-          user={dataSaved.name}
-          icon={Images.users}
-          editable={editable}
-          setUpdatedUserData={setUpdatedUserData}
-          updatedUserData={updatedUserData}
-          handleTextChange={(text: any) => handleTextChange("name", text)}
-        />
-        <ProfileInput
-          user={dataSaved.email}
-          icon={Images.sms}
-          editable={editable}
-          setUpdatedUserData={setUpdatedUserData}
-          handleTextChange={(text: any) => handleTextChange("email", text)}
-        />
-        <ProfileInput
-          user={dataSaved.mobile}
-          icon={Images.mobiles}
-          editable={editable}
-          setUpdatedUserData={setUpdatedUserData}
-          handleTextChange={(text: any) => handleTextChange("mobile", text)}
-        />
-        <ProfileInput
-          user={dataSaved.address}
-          icon={Images.home}
-          editable={editable}
-          setUpdatedUserData={updatedUserData}
-          handleTextChange={(text: any) => handleTextChange("address", text)}
-        />
+        <KeyboardAvoidingView>
+          <ProfileInput
+            user={dataSaved.name}
+            icon={Images.users}
+            editable={editable}
+            setUpdatedUserData={setUpdatedUserData}
+            updatedUserData={updatedUserData}
+            handleTextChange={(text: any) => handleTextChange("name", text)}
+          />
+          <ProfileInput
+            user={dataSaved.email}
+            icon={Images.sms}
+            editable={editable}
+            setUpdatedUserData={setUpdatedUserData}
+            handleTextChange={(text: any) => handleTextChange("email", text)}
+          />
+          <ProfileInput
+            user={dataSaved.mobile}
+            icon={Images.mobiles}
+            editable={editable}
+            setUpdatedUserData={setUpdatedUserData}
+            handleTextChange={(text: any) => handleTextChange("mobile", text)}
+          />
+          <ProfileInput
+            user={dataSaved.address}
+            icon={Images.home}
+            editable={editable}
+            setUpdatedUserData={updatedUserData}
+            handleTextChange={(text: any) => handleTextChange("address", text)}
+          />
+        </KeyboardAvoidingView>
       </ScrollView>
       <View style={ProfileStyle.profilesbtn}>
         {editable ? (
